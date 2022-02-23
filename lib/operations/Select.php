@@ -199,7 +199,7 @@ class Select extends Base
             }
         }
 
-        if ($statement_group_columns = $statement_columns_group->getColumns($this)) {
+        if ($statement_group_columns = $statement_columns_group->getColumns($statement_connection_dialect, $this)) {
             $statement->append('GROUP BY');
             $statement_group_columns_sintax = implode(chr(44) . chr(32), $statement_group_columns);
             $statement->append($statement_group_columns_sintax);
@@ -213,7 +213,7 @@ class Select extends Base
 
         $statement->pushFromBind($statement_columns_group);
 
-        if ($statement_order_columns = $this->getOrder()->getColumns($this)) {
+        if ($statement_order_columns = $this->getOrder()->getColumns($statement_connection_dialect, $this)) {
             $statement->append('ORDER BY');
             $statement_order_columns_sql = implode(chr(44) . chr(32), $statement_order_columns);
             $statement->append($statement_order_columns_sql);
@@ -252,7 +252,7 @@ class Select extends Base
 
     protected static function buildColumns(Dialect $dialect, Table $table, ?Alias $alias = null, ?bool $required = false, ?Group $group = null) : array
     {
-        $group_columns = $group === null ? [] : $group->getColumns(null, true);
+        $group_columns = $group === null ? [] : $group->getColumns($dialect, null, true);
 
         $table_columns = $table->getAllFieldsKeys();
         $table_columns_files = $table->getAllFieldsFileName();

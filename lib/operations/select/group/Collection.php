@@ -5,6 +5,7 @@ namespace KSQL\operations\select\group;
 use Knight\armor\CustomException;
 
 use KSQL\entity\Table;
+use KSQL\dialects\constraint\Dialect;
 use KSQL\operations\common\Option;
 use KSQL\operations\Select;
 
@@ -36,14 +37,14 @@ class Collection extends Option
         return $this->fields;
     }
 
-    public function elaborate(?Select $select) : array
+    public function elaborate(Dialect $dialect, ?Select $select) : array
     {
         $fields = $this->getFields();
         $fields = array_fill_keys($fields, null);
         if (null === $select) return $fields;
 
         $table = $this->getTable();
-        $table_columns = $select->getAllColumns($table);
+        $table_columns = $select->getAllColumns($dialect, $table);
         $table_columns = array_intersect_key($table_columns, $fields);
 
         return $table_columns;

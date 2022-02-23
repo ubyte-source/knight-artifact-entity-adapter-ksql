@@ -2,6 +2,7 @@
 
 namespace KSQL\operations\select;
 
+use KSQL\dialects\constraint\Dialect;
 use KSQL\operations\Select;
 use KSQL\operations\select\order\Direction;
 use KSQL\operations\select\order\Field;
@@ -35,11 +36,11 @@ class Order
         return $this;
     }
 
-    public function getColumns(?Select $select) : array
+    public function getColumns(Dialect $dialect, ?Select $select) : array
     {
         $collections = $this->getCollections();
-        $collections_condition = array_map(function (Column $column) use ($select) {
-            return $column->elaborate($select);
+        $collections_condition = array_map(function (Column $column) use ($dialect, $select) {
+            return $column->elaborate($dialect, $select);
         }, $collections);
         return $collections_condition;
     }

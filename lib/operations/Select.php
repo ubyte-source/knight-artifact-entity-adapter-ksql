@@ -252,7 +252,7 @@ class Select extends Base
 
     protected static function buildColumns(Dialect $dialect, Table $table, ?Alias $alias = null, ?bool $required = false, ?Group $group = null) : array
     {
-        $group_columns = $group === null ? [] : $group->getColumns($dialect, null, true);
+        $group_columns = $group === null ? [] : $group->getColumns(null, true);
 
         $table_columns = $table->getAllFieldsKeys();
         $table_columns_files = $table->getAllFieldsFileName();

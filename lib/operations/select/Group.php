@@ -58,11 +58,11 @@ class Group extends Bind
         return $this;
     }
 
-    public function getColumns(Dialect $dialect, ?Select $select = null, bool $name = false) : array
+    public function getColumns(?Select $select = null, bool $name = false) : array
     {
         $collections = $this->getCollections();
-        $collections_condition = array_map(function (Collection $collection) use ($dialect, $select) {
-            return $collection->elaborate($dialect, $select);
+        $collections_condition = array_map(function (Collection $collection) use ($select) {
+            return $collection->elaborate($select);
         }, $collections);
 
         if (empty($collections_condition)) return $collections_condition;

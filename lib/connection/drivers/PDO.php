@@ -6,6 +6,8 @@ use PDO as Original;
 use PDOStatement;
 use PDOException;
 
+use Knight\armor\Output;
+
 use Entity\Map;
 
 use KSQL\Factory;
@@ -81,7 +83,6 @@ final class PDO extends Common
 
             if (!!$sintax_prepare->execute()) return $sintax_prepare;
         } catch (PDOException $exception) {
-            print_r($exception);
         }
 
         return null;

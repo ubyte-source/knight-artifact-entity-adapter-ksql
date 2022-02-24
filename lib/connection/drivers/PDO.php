@@ -41,8 +41,7 @@ final class PDO extends Common
 
         $pdo_hash = $this->getHash();
         $pdo = Factory::searchConnectionFromHash($pdo_hash);
-
-        if (null === $pdo) $pdo = new Original($array[0], $array[1], $array[2], [
+        $pdo = null !== $pdo && $pdo instanceof Common ? $pdo->getInstance() : new Original($array[0], $array[1], $array[2], [
             Original::ATTR_TIMEOUT => 4,
             Original::ATTR_ERRMODE => Original::ERRMODE_EXCEPTION
         ]);

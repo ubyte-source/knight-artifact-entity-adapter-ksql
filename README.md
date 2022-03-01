@@ -97,9 +97,6 @@ final class MySQL
     - [KSQL\Initiator](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib/Initiator)
     - [KSQL\Statement](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib/Statement)
 
-
-## Usage
-
 <br>
 
 ## ***Perform insert query***

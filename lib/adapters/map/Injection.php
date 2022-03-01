@@ -11,6 +11,8 @@ use KSQL\operations\Select;
 use KSQL\dialects\constraint\Dialect;
 use KSQL\adapters\map\common\Bind;
 
+/* This class is used to inject values into the query */
+
 final class Injection extends Bind
 {
     const BIND_NAME = '\\#name\\#';
@@ -21,10 +23,24 @@ final class Injection extends Bind
 
     protected $columns = []; // (array)
 
+    /**
+     * Returns an array of the columns in the table
+     * 
+     * @return An array of column names.
+     */
+
     public function getColumns() : array
     {
         return $this->columns;
     }
+
+    /**
+     * Get all the constants from a class
+     * 
+     * @param string instance The instance of the class you want to get the constants of.
+     * 
+     * @return An array of constants.
+     */
 
     public static function getConstants(string $instance) : array
     {
@@ -32,6 +48,16 @@ final class Injection extends Bind
         $constants = $constants->getConstants();
         return $constants;
     }
+
+    /**
+     * It takes a field name and a value, and adds them to the columns array
+     * 
+     * @param Dialect dialect The dialect to use.
+     * @param string field_name The name of the field to be added to the query.
+     * @param string value The value to be inserted into the column.
+     * 
+     * @return The current instance of the class.
+     */
 
     public function addColumn(Dialect $dialect, string $field_name, string $value, ?string ...$data) :  self
     {
@@ -49,6 +75,17 @@ final class Injection extends Bind
 
         return $this;
     }
+
+    /**
+     * This function adds a column to the select statement
+     * 
+     * @param Dialect dialect The dialect to use.
+     * @param string field_name The name of the column to be added.
+     * @param Select select The Select object that you want to add to the select statement.
+     * @param bool json If true, the column will be treated as a JSON column.
+     * 
+     * @return The column name.
+     */
 
     public function addColumnSelect(Dialect $dialect, string $field_name, Select $select, bool $json = false) : self
     {
@@ -80,6 +117,15 @@ final class Injection extends Bind
 
         return $this;
     }
+
+    /**
+     * This function will return an array of the columns that are being used in the query
+     * 
+     * @param int type The type of the column.
+     * @param prefix The prefix to use for the bind variables.
+     * 
+     * @return The return value is an array of strings.
+     */
 
     public function getColumnsParsed(int $type, ?string $prefix = null) : array
     {

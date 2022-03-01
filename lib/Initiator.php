@@ -11,6 +11,8 @@ use KSQL\entity\Table;
 use KSQL\operations\common\Base;
 use KSQL\connection\Common as Connection;
 
+/* This class is used to create a new instance of the class and set the connection and table properties */
+
 final class Initiator
 {
     const OPERATIONS = 'operations';
@@ -21,11 +23,23 @@ final class Initiator
 
     protected function __construct() {}
 
+    /**
+     * Returns the namespace name of the class
+     * 
+     * @return The namespace name of the class.
+     */
+
     public static function getNamespaceName() : string
     {
         $class = new ReflectionClass(static::class);
         return $class->getNamespaceName();
     }
+
+    /**
+     * Clone the object and all its properties
+     * 
+     * @return The object itself.
+     */
 
     public function __clone()
     {
@@ -44,6 +58,15 @@ final class Initiator
         });
     }
 
+    /**
+     * If the method called is a valid operation, create an instance of the operation class and return it
+     * 
+     * @param string method The method name that was called.
+     * @param array arguments The arguments passed to the method.
+     * 
+     * @return An instance of the operation class.
+     */
+
     public function __call(string $method, array $arguments) : Base
     {
         $class_name = strtolower($method);
@@ -56,7 +79,16 @@ final class Initiator
         throw new CustomException('developer/database/call/operation/missmatch');
     }
 
-    public static function start(?Connection $connection, Table $table, Closure $callable = null) : self
+    /**
+     * This function creates a new instance of the class and sets the connection and table properties
+     * 
+     * @param connection The connection to use. If not specified, the default connection will be used.
+     * @param Table table The table object that we're going to be working with.
+     * 
+     * @return An instance of the class.
+     */
+
+    public static function start(?Connection $connection, Table $table) : self
     {
         $instance = new static();
         $instance->setConnection($connection);
@@ -68,15 +100,33 @@ final class Initiator
         return $instance;
     }
 
+    /**
+     * Returns the table object associated with this class
+     * 
+     * @return The table object.
+     */
+
     public function getTable() : Table
     {
         return $this->table;
     }
 
+    /**
+     * Returns the connection object
+     * 
+     * @return A connection object.
+     */
+
     public function getConnection() :? Connection
     {
         return $this->connection;
     }
+
+    /**
+     * The setConnection function sets the connection property to the value of the connection parameter
+     * 
+     * @param connection The connection to the database.
+     */
 
     protected function setConnection(?Connection $connection) : void
     {

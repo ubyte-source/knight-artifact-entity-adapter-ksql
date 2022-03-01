@@ -7,10 +7,18 @@ use KSQL\entity\Table;
 use KSQL\adapters\map\Injection;
 use KSQL\operations\common\Handling;
 
+/* It takes a list of tables, and returns a list of queries */
+
 class Insert extends Handling
 {
     protected $ignore = false; // (bool)
     protected $update = false; // (bool)
+
+    /**
+     * It takes a list of tables, and returns a list of queries
+     * 
+     * @return An array of queries.
+     */
 
     public function getQueries() : array
     {
@@ -75,22 +83,50 @@ class Insert extends Handling
         return $tables;
     }
 
+    /**
+     * The setUpdate function sets the update property to the value passed in
+     * 
+     * @param bool value The value to set the property to.
+     * 
+     * @return The object itself.
+     */
+
     public function setUpdate(bool $value = true) : self
     {
         $this->update = $value;
         return $this;
     }
 
+    /**
+     * Returns true if the update flag is set.
+     * 
+     * @return A boolean value.
+     */
+
     public function getUpdate() : bool
     {
         return $this->update === true;
     }
+
+    /**
+     * Set the ignore flag to true or false.
+     * 
+     * @param bool value The value to set the property to.
+     * 
+     * @return Nothing.
+     */
 
     public function setIgnore(bool $value = true) : self
     {
         $this->ignore = $value;
         return $this;
     }
+
+    /**
+     * Get the value of the ignore property.
+     * 
+     * @return A boolean value.
+     */
 
     public function getIgnore() : bool
     {

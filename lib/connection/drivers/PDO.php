@@ -15,9 +15,19 @@ use KSQL\Statement;
 use KSQL\dialects\constraint\Dialect;
 use KSQL\connection\Common;
 
+/* This class is responsible for preparing the statement and binding the parameters */
+
 final class PDO extends Common
 {
     protected $prepare = []; // (array) PDOStatement
+
+    /**
+     * If the value is an array or an object, convert it to a JSON string
+     * 
+     * @param value The value to be converted.
+     * 
+     * @return The value of the field.
+     */
 
     public static function converter(&$value) : void
     {
@@ -35,6 +45,12 @@ final class PDO extends Common
             $value = (int)(bool)$value;
     }
 
+    /**
+     * The constructor of this class will create a PDO object with the given parameters
+     * 
+     * @param Dialect dialect The dialect to use.
+     */
+
     public function __construct(Dialect $dialect, string ...$array)
     {
         parent::__construct($dialect, ...$array);
@@ -48,6 +64,14 @@ final class PDO extends Common
 
         $this->setInstance($pdo);
     }
+
+    /**
+     * This function is responsible for preparing the statement and binding the parameters
+     * 
+     * @param Statement statement The statement object that is being executed.
+     * 
+     * @return The PDOStatement object.
+     */
 
     public function execute(Statement $statement)
     {
@@ -86,6 +110,15 @@ final class PDO extends Common
 
         return null;
     }
+
+    /**
+     * If the statement has already been prepared, return the prepared statement. Otherwise, prepare
+     * the statement and return the prepared statement
+     * 
+     * @param string statement The SQL statement to prepare.
+     * 
+     * @return A PDOStatement object.
+     */
 
     protected function getPrepare(string $statement) :? PDOStatement
     {

@@ -8,14 +8,29 @@ use KSQL\entity\Table;
 use KSQL\operations\Select;
 use KSQL\operations\select\order\base\Column;
 
+/* This class is used to create a field in a select statement */
+
 class Field extends Column
 {
     protected $options = []; // (array)
+
+    /**
+     * Constructor for the class
+     * 
+     * @param Table table The table that this column belongs to.
+     * @param string name The name of the column.
+     */
 
     public function __construct(Table $table, string $name)
     {
         parent::__construct($table, $name);
     }
+
+   /**
+    * This function sets the options for the field
+    * 
+    * @return Nothing.
+    */
 
     public function setOptions(string ...$options) : self
     {
@@ -25,10 +40,24 @@ class Field extends Column
         return $this;
     }
 
+    /**
+     * This function returns the options array
+     * 
+     * @return An array of options.
+     */
+
     public function getOptions() : array
     {
         return $this->options;
     }
+
+   /**
+    * This function returns the options for the field
+    * 
+    * @param select The Select object that is currently being elaborated.
+    * 
+    * @return The field name and the options.
+    */
 
     public function elaborate(?Select $select) : string
     {

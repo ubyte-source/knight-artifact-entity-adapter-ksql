@@ -6,6 +6,8 @@ use KSQL\entity\Table;
 use KSQL\operations\select\Alias;
 use KSQL\operations\common\Option;
 
+/* This class is used to join tables */
+
 class Join extends Option
 {
     const RIGHT = 0x830b82;
@@ -17,12 +19,26 @@ class Join extends Option
     protected $using = false;        // (array)
     protected $alias;                // Alias
 
+    /**
+     * Constructor for the inner join
+     * 
+     * @param Table table The table object that is being joined.
+     */
+
     public function __construct(Table $table)
     {
         parent::__construct($table);
         $this->setType(static::INNER);
         $this->setAlias();
     }
+
+    /**
+     * Set the type of join.
+     * 
+     * @param int type The type of join.
+     * 
+     * @return Nothing.
+     */
 
     public function setType(int $type) : self
     {
@@ -32,10 +48,24 @@ class Join extends Option
         return $this;
     }
 
+    /**
+     * Get the type of the object
+     * 
+     * @return The type of the question.
+     */
+
     public function getType() : int
     {
         return $this->type;
     }
+
+    /**
+     * Add a condition to the query
+     * 
+     * @param string condition The condition to add to the query.
+     * 
+     * @return The object itself.
+     */
 
     public function addCondition(string $condition) : self
     {
@@ -43,10 +73,22 @@ class Join extends Option
         return $this;
     }
 
+    /**
+     * Returns the conditions array
+     * 
+     * @return An array of conditions.
+     */
+
     public function getConditions() : array
     {
         return $this->conditions;
     }
+
+    /**
+     * This function returns the conditions that are used in the ON statement
+     * 
+     * @return The conditions that are being used in the join.
+     */
 
     public function getConditionsBuilded() :? string
     {
@@ -64,21 +106,49 @@ class Join extends Option
         return $conditions;
     }
 
+    /**
+     * The setUsingList function sets the using property to the value of the enable parameter
+     * 
+     * @param bool enable If true, the list will be used. If false, the list will be ignored.
+     * 
+     * @return Nothing.
+     */
+
     public function setUsingList(bool $enable = true) : self
     {
         $this->using = $enable;
         return $this;
     }
 
+    /**
+     * Returns the value of the using property
+     * 
+     * @return A boolean value.
+     */
+
     public function getUsingList() : bool
     {
         return $this->using;
     }
 
+    /**
+     * Get the alias of this joined table.
+     * 
+     * @return The Alias joined table.
+     */
+
     public function getAlias() : Alias
     {
         return $this->alias;
     }
+
+    /**
+     * Returns the name of the field in the table, with the table alias prepended
+     * 
+     * @param string name The name of the field to be parsed.
+     * 
+     * @return The field name with the table alias.
+     */
 
     public function getFieldParsed(string $name) : string
     {
@@ -93,6 +163,10 @@ class Join extends Option
 
         return $table_field_name;
     }
+
+    /**
+     * This function sets the alias for the table
+     */
 
     protected function setAlias() : void
     {

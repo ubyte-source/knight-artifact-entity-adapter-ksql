@@ -5,9 +5,17 @@ namespace KSQL\adapters\map;
 use KSQL\Initiator;
 use KSQL\entity\Table;
 
+/* This class is used to join tables together */
+
 final class JoinedTables
 {
     protected $tables = []; // (array) Table
+
+   /**
+    * Clone the object and all its properties
+    * 
+    * @return The object itself.
+    */
 
     public function __clone()
     {
@@ -23,6 +31,12 @@ final class JoinedTables
         });
     }
 
+    /**
+     * *This function pushes a table onto the tables array.*
+     * 
+     * @return The number of tables pushed.
+     */
+
     public function pushTables(Table ...$tables) : int
     {
         foreach ($tables as $table)
@@ -30,6 +44,12 @@ final class JoinedTables
                 $table->useAdapter(Initiator::ADAPTER_NAME, Initiator::getNamespaceName());
         return array_push($this->tables, ...$tables);
     }
+
+    /**
+     * Given a list of table names, return a list of tables that match those names
+     * 
+     * @return An array of Table objects.
+     */
 
     public function getTablesByName(string ...$names) : array
     {
@@ -39,6 +59,12 @@ final class JoinedTables
         });
         return $tables;
     }
+
+    /**
+     * Returns an array of all the tables in the database
+     * 
+     * @return An array of table names.
+     */
 
     public function getTables() : array
     {

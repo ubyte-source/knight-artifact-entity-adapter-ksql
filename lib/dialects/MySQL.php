@@ -10,7 +10,9 @@ use KSQL\dialects\constraint\Dialect;
 use KSQL\operations\Select;
 use KSQL\operations\select\Limit;
 use KSQL\connection\Common as Connection;
-use KSQL\connection\drivers\PDO;
+use KSQL\connection\drivers\PDO as PDODriver;
+
+/* This class is used to create a MySQL connection */
 
 final class MySQL extends Dialect
 {
@@ -23,6 +25,14 @@ final class MySQL extends Dialect
     const CONFIGURATION_DATABASE_PASSWORD = 0x33451;
     const CONFIGURATION_HOST = 0x30d40;
     const CONFIGURATION_PORT = 0x30d41;
+
+    /**
+     * This function returns a PDO connection object
+     * 
+     * @param string constant The name of the constant to use.
+     * 
+     * @return A PDO connection driver object.
+     */
 
     public static function Connection(string $constant = 'DEFAULT') : Connection
     {
@@ -37,15 +47,30 @@ final class MySQL extends Dialect
         $connection_password = static::getConfiguration(static::CONFIGURATION_DATABASE_PASSWORD, true, $dialect, $constant);
 
         $connection_dialect = static::instance();
-        $connection = new PDO($connection_dialect, $connetion_string, $connection_username, $connection_password);
+        $connection = new PDODriver($connection_dialect, $connetion_string, $connection_username, $connection_password);
 
         return $connection;
     }
+
+    /**
+     * Returns the character 58
+     * 
+     * @return The character 58.
+     */
 
     public static function BindCharacter() : string
     {
         return chr(58);
     }
+
+    /**
+     * This function returns the JSON_OBJECT or JSON_ARRAYAGG function with the column names as the
+     * arguments
+     * 
+     * @param Select select The Select object that we're converting to JSON.
+     * 
+     * @return The JSON_OBJECT function is being used to create a JSON object from the column names.
+     */
 
     public static function ToJSON(Select $select) : string
     {
@@ -67,6 +92,14 @@ final class MySQL extends Dialect
         return $column;
     }
 
+    /**
+     * This function returns the last inserted ID of a table
+     * 
+     * @param Table table The table object that we're inserting into.
+     * 
+     * @return The last insert id of the table.
+     */
+
     public static function LastInsertID(Table $table) : string
     {
         $child_insert = chr(88) . $table->getHash();
@@ -74,11 +107,28 @@ final class MySQL extends Dialect
         return $child_insert;
     }
 
+    /**
+     * Returns the value of the specified element
+     * 
+     * @param string elaborate the name of the field to be used in the query.
+     * 
+     * @return The string 'ANY_VALUE(elaborate)'
+     */
+
     public static function AnyValue(string $elaborate) : string
     {
         $any = 'ANY_VALUE' . chr(40) . $elaborate . chr(41);
         return $any;
     }
+
+    /**
+     * This function takes a string and returns a string that is a base64 encoded version of the input
+     * string
+     * 
+     * @param string filtered The string you want to replace.
+     * 
+     * @return The REPLACE function is being returned.
+     */
 
     public static function FileReplacer(string $filtered) :? string
     {
@@ -86,6 +136,15 @@ final class MySQL extends Dialect
         $replace_sintax = 'REPLACE' . chr(40) . $repalce_sintax_base . chr(44) . chr(32) . chr(34) . chr(10) . chr(34) . chr(44) . chr(32) . chr(34) . chr(34) . chr(41);
         return $replace_sintax;
     }
+
+    /**
+     * This function is used to limit the number of rows returned by a query
+     * 
+     * @param Statement statement The statement object to append to.
+     * @param Limit limit The limit value.
+     * 
+     * @return Nothing.
+     */
 
     public static function Limit(Statement $statement, Limit $limit) : void
     {
@@ -100,6 +159,14 @@ final class MySQL extends Dialect
 
         $statement->append($value);
     }
+
+    /**
+     * This function returns a string that is a natural join of the table name
+     * 
+     * @param string table The table to join with the current table.
+     * 
+     * @return A string.
+     */
 
     public static function NaturalJoin(string $table) : string
     {

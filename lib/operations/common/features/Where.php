@@ -10,16 +10,36 @@ use KSQL\adapters\map\Injection;
 use KSQL\dialects\constraint\Dialect;
 use KSQL\operations\Select;
 
+/* This code is responsible for generating the WHERE clause of the SQL statement. */
+
 trait Where
 {
     protected $tables = []; // (array)
     protected $where;       // Statement
+
+    /**
+     * The setWhereStatement function takes a Statement object as a parameter and sets the where
+     * property to that object
+     * 
+     * @param Statement statement The statement to be used in the WHERE clause.
+     * 
+     * @return The object itself.
+     */
 
     public function setWhereStatement(Statement $statement) : self
     {
         $this->where = $statement;
         return $this;
     }
+
+    /**
+     * This function is responsible for generating the WHERE clause of the SQL statement
+     * 
+     * @param Dialect dialect The dialect object that will be used to generate the SQL.
+     * @param Table data the table that is being queried
+     * 
+     * @return The statement object.
+     */
 
     public function where(Dialect $dialect, Table $data, string ...$skip) : Statement
     {
@@ -84,21 +104,49 @@ trait Where
         return $statement->concat($where);
     }
 
+    /**
+     * It pushes the tables into the tables array.
+     * 
+     * @return The number of tables added to the array.
+     */
+
     public function pushTablesUsingOr(Table ...$tables) : int
     {
         return array_push($this->tables, ...$tables);
     }
+
+    /**
+     * This function returns an array of tables that are being used in the query
+     * 
+     * @return An array of table names.
+     */
 
     protected function getTablesUsingOr() : array
     {
         return $this->tables;
     }
 
-    
+    /**
+     * This function returns the WHERE statement for the query
+     * 
+     * @return A Statement object.
+     */
+
     protected function getWhereStatement() :? Statement
     {
         return $this->where;
     }
+
+    /**
+     * This function is used to generate the WHERE clause for a single table
+     * 
+     * @param Dialect dialect The dialect to use.
+     * @param Table table The table object that is being used in the query.
+     * @param Statement statement The statement object that will be used to bind the values.
+     * @param alias The alias of the table.
+     * 
+     * @return The where clause for the table.
+     */
 
     protected function singleTableWhere(Dialect $dialect, Table $table, Statement $statement, ?string $alias = null) : string
     {

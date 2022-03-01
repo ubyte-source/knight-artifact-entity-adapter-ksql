@@ -15,6 +15,8 @@ use KSQL\operations\common\Base;
 use KSQL\operations\common\features\Where;
 use KSQL\connection\Common as Connection;
 
+/* It takes a list of tables, and returns a list of queries */
+
 class Select extends Base
 {
     use Where;
@@ -28,6 +30,15 @@ class Select extends Base
     protected $limit;     // Limit
     protected $alias;     // Alias
 
+    /**
+     * Returns the name of the table
+     * 
+     * @param Table table The Table object that we're getting the table name for.
+     * @param alias The alias of the table.
+     * 
+     * @return The table name.
+     */
+
     public static function getTableName(Table $table, ?Alias $alias = null) : string
     {
         $name = $table->getCollectionName();
@@ -36,16 +47,36 @@ class Select extends Base
         return $name;
     }
 
+    /**
+     * Add a join to the query
+     * 
+     * @return The same object.
+     */
+
     public function pushJoin(Join ...$join) : self
     {
         if (!!$join) array_push($this->join, ...$join);
         return $this;
     }
 
+    /**
+     * Returns the join array
+     * 
+     * @return An array of the join statements.
+     */
+
     public function getJoin() : array
     {
         return $this->join;
     }
+
+   /**
+    * Find a join in the current query by table hash
+    * 
+    * @param Table table The table to join.
+    * 
+    * @return A Join object or null.
+    */
 
     public function findJoin(Table $table) :? Join
     {
@@ -57,31 +88,71 @@ class Select extends Base
         return null;
     }
 
+    /**
+     * The setDistinct method sets the distinct property to the value passed in
+     * 
+     * @param bool distinct If set to true, the query will be executed with a distinct clause.
+     * 
+     * @return The current instance of the class.
+     */
+
     public function setDistinct(bool $distinct = true) : self
     {
         $this->distinct = $distinct;
         return $this;
     }
 
+    /**
+     * Get the injection for this object.
+     * 
+     * @return The injection object.
+     */
+
     public function getInjection() : Injection
     {
         return $this->injection;
     }
+
+    /**
+     * Get the group that this user belongs to.
+     * 
+     * @return The group object that is associated with the question.
+     */
 
     public function getGroup() : Group
     {
         return $this->group;
     }
 
+    /**
+     * Get the order object.
+     * 
+     * @return The Order object that is associated with the OrderItem.
+     */
+
     public function getOrder() : Order
     {
         return $this->order;
     }
 
+    /**
+     * Get the limit.
+     * 
+     * @return The limit object.
+     */
+
     public function getLimit() : Limit
     {
         return $this->limit;
     }
+
+    /**
+     * Creates a new Alias object and sets it as the current alias for this QueryBuilder
+     * 
+     * @param string name The name of the alias.
+     * 
+     * @return The current instance of the class.
+     */
 
     public function useAlias(string $name = null) : self
     {
@@ -91,10 +162,24 @@ class Select extends Base
         return $this;
     }
 
+    /**
+     * Get the alias of this object.
+     * 
+     * @return The alias object.
+     */
+
     public function getAlias() :? Alias
     {
         return $this->alias;
     }
+
+    /**
+     * The setFromStatement function sets the from property of the class to the given statement
+     * 
+     * @param Statement statement The statement to be used as the FROM clause.
+     * 
+     * @return The object itself.
+     */
 
     public function setFromStatement(Statement $statement) : self
     {
@@ -102,22 +187,43 @@ class Select extends Base
         return $this;
     }
 
+    /**
+     * Returns the table object for the current model
+     * 
+     * @return A Table object.
+     */
+
     public function getTable() : Table
     {
         return $this->getCore()->getTable();
     }
+
+    /**
+     * Returns the connection object for the current request
+     * 
+     * @return A connection object.
+     */
 
     public function getConnection() :? Connection
     {
         return $this->getCore()->getConnection();
     }
 
+    /**
+     * Given a table, return the field name
+     * 
+     * @param Table table The table to get the field from.
+     * @param string name The name of the field to get.
+     * 
+     * @return The field name.
+     */
+
     public function getFieldParsed(Table $table, string $name) : string
     {
         $master = $this->getTable();
         if ($table === $master) {
             $table_name = $this->getFrom();
-            $field_name = $table_name . '.' . chr(96) . $name . chr(96);
+            $field_name = $table_name . chr(46) . chr(96) . $name . chr(96);
             return $field_name;
         }
 
@@ -128,10 +234,23 @@ class Select extends Base
         return $field_name;
     }
 
+    /**
+     * This function returns the table name of the current model
+     * 
+     * @return The table name.
+     */
+
     public function getFrom() : string
     {
         return static::getTableName($this->getTable(), $this->getAlias());
     }
+
+    /**
+     * This function returns a statement object that contains the SQL query that will be executed by
+     * the database
+     * 
+     * @return The SQL statement.
+     */
 
     public function getStatement() : Statement
     {
@@ -224,12 +343,30 @@ class Select extends Base
         return $statement;
     }
 
+    /**
+     * This function runs the statement that was created in the constructor
+     * 
+     * @return The statement object.
+     */
+
     public function run()
     {
         $statement = $this->getStatement();
         $statement_response = $statement->execute();
         return $statement_response;
     }
+
+    /**
+     * This function will return all the columns from the table and all the joined tables
+     * 
+     * @param Dialect dialect The dialect to use for the query.
+     * @param Table data The table that we are getting the columns from.
+     * @param bool required If true, the column is required to be in the query.
+     * @param Group group The group to which the columns belong.
+     * 
+     * @return The columns that are being returned are the columns that are being used in the query.
+     *     This includes the columns that are being joined.
+     */
 
     public function getAllColumns(Dialect $dialect, Table $data, bool $required = false, Group $group = null) : array
     {
@@ -249,6 +386,18 @@ class Select extends Base
 
         return $columns_response;
     }
+
+    /**
+     * It builds the columns for the SELECT statement
+     * 
+     * @param Dialect dialect The dialect to use.
+     * @param Table table The table object.
+     * @param alias The alias of the table.
+     * @param required If true, only the fields that are required will be included in the query.
+     * @param group The group of columns to be included in the query.
+     * 
+     * @return The method returns an array of columns that will be used to build the query.
+     */
 
     protected static function buildColumns(Dialect $dialect, Table $table, ?Alias $alias = null, ?bool $required = false, ?Group $group = null) : array
     {
@@ -285,6 +434,11 @@ class Select extends Base
         return $sql;
     }
 
+    /**
+     * The initialize function sets the group, order, limit, and injection properties to new instances
+     * of their respective classes
+     */
+
     protected function initialize() : void
     {
         $this->setGroup(new Group());
@@ -293,35 +447,77 @@ class Select extends Base
         $this->setInjection(new Injection());
     }
 
+    /**
+     * The setInjection function sets the injection property to the injection parameter
+     * 
+     * @param Injection injection The injection to be used.
+     */
+
     protected function setInjection(Injection $injection) : void
     {
         $this->injection = $injection;
     }
+
+    /**
+     * The setGroup function sets the group property to the given Group object
+     * 
+     * @param Group group The group that the user is being added to.
+     */
 
     protected function setGroup(Group $group) : void
     {
         $this->group = $group;
     }
 
+    /**
+     * The setOrder function takes an Order object as a parameter and sets the order property to that
+     * object
+     * 
+     * @param Order order The order object.
+     */
+
     protected function setOrder(Order $order) : void
     {
         $this->order = $order;
     }
+
+    /**
+     * The setLimit function sets the limit property of the class to the limit parameter
+     * 
+     * @param Limit limit The limit of the number of records to return.
+     */
 
     protected function setLimit(Limit $limit) : void
     {
         $this->limit = $limit;
     }
 
+    /**
+     * Returns true if the query is a distinct query
+     * 
+     * @return A boolean value.
+     */
+
     protected function getDistinct() : bool
     {
         return $this->distinct === true;
     }
 
+    /**
+     * The setJoin function takes an array of Join objects and sets the join property of the current
+     * object to that array
+     */
+
     protected function setJoin(Join ...$join) : void
     {
         $this->join = $join;
     }
+
+    /**
+     * This function should limit the number of rows returned by the statement
+     * 
+     * @param Statement statement The statement to limit.
+     */
 
     protected function shouldLimit(Statement $statement) : void
     {
@@ -330,10 +526,28 @@ class Select extends Base
         $statement_connection_dialect::Limit($statement, $this->getLimit());
     }
 
+    /**
+     * Get the from statement.
+     * 
+     * The summary should be written in the imperative. It should be short and to the point, but should
+     * contain the most important information about the function
+     * 
+     * @return A Statement object.
+     */
+
     protected function getFromStatement() :? Statement
     {
         return $this->from;
     }
+
+    /**
+     * It takes a Dialect object and a Table object, and returns an array of strings
+     * 
+     * @param Dialect dialect The dialect to use.
+     * @param Table data The data object that is being joined.
+     * 
+     * @return The join method is returning an array of strings.
+     */
 
     protected function join(Dialect $dialect, Table $data) : array
     {

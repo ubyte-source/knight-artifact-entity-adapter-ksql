@@ -7,8 +7,18 @@ use KSQL\entity\Table;
 use KSQL\adapters\map\Injection;
 use KSQL\operations\common\Handling;
 
+/* It returns an array of queries, each one of them is a statement that will be executed on the
+database */
+
 class Update extends Handling
 {
+    /**
+     * It returns an array of queries, each one of them is a statement that will be executed on the
+     * database
+     * 
+     * @return An array of queries.
+     */
+
     public function getQueries() : array
     {
         $core = $this->getCore();

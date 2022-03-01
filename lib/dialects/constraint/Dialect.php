@@ -10,6 +10,8 @@ use KSQL\operations\Select;
 use KSQL\operations\select\Limit;
 use KSQL\connection\Common as Connection;
 
+/* A contract. */
+
 interface Bond
 {
     public static function Connection(string $constant = 'DEFAULT') : Connection;
@@ -22,11 +24,15 @@ interface Bond
     public static function NaturalJoin(string $table) : string;
 }
 
+/* The Dialect class is a singleton class that implements the Bond interface */
+
 abstract class Dialect implements Bond
 {
     const UNKNOWN = 'unknown';
 
     protected function __construct() {}
+
+    /* This is a singleton pattern. */
 
     final public static function instance() : self
     {
@@ -34,6 +40,8 @@ abstract class Dialect implements Bond
         if (null === $instance) $instance = new static();
         return $instance;
     }
+
+    /* Return a neme of class. */
 
     final public static function name() : string
     {

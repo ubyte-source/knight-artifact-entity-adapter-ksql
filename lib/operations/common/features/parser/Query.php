@@ -13,6 +13,12 @@ class Query extends Bind
     protected $statement;   // Statement
     protected $table;       // Table
 
+    /**
+     * Clone the object and all its properties
+     * 
+     * @return The cloned object.
+     */
+
     public function __clone()
     {
         $variables = get_object_vars($this);
@@ -30,15 +36,35 @@ class Query extends Bind
         });
     }
 
+    /**
+     * The constructor for the class
+     * 
+     * @param Table table The table object that this class is associated with.
+     */
+
     final public function __construct(Table $table)
     {
         $this->setTable($table);
     }
 
+    /**
+     * Returns the table object associated with this class
+     * 
+     * @return The table object.
+     */
+
     public function getTable() : Table
     {
         return $this->table;
     }
+
+    /**
+     * The setStatement function sets the statement property to the given statement
+     * 
+     * @param Statement statement The statement to be executed.
+     * 
+     * @return The object itself.
+     */
 
     public function setStatement(Statement $statement) : self
     {
@@ -46,10 +72,22 @@ class Query extends Bind
         return $this;
     }
 
+   /**
+    * Returns the statement object associated with this object
+    * 
+    * @return The statement object.
+    */
+
     public function getStatement() :? Statement
     {
         return $this->statement;
     }
+
+    /**
+     * The setTable function sets the table property to the Table object passed to it
+     * 
+     * @param Table table The table to be used for the query.
+     */
 
     protected function setTable(Table $table) : void
     {

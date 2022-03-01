@@ -6,8 +6,16 @@ use KSQL\Statement;
 use KSQL\entity\Table;
 use KSQL\operations\common\Handling;
 
+/* It takes a list of tables, and returns a list of queries */
+
 class Delete extends Handling
 {
+   /**
+    * It takes a list of tables, and returns a list of queries
+    * 
+    * @return An array of queries.
+    */
+
     public function getQueries() : array
     {
         $core = $this->getCore();

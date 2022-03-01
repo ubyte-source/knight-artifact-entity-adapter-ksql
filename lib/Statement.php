@@ -7,15 +7,34 @@ use Knight\armor\CustomException;
 use KSQL\adapters\map\common\Bind;
 use KSQL\connection\Common as Connection;
 
+/* The Statement class is a class that is used to build a query */
+
 class Statement extends Bind
 {
     protected $connection;  // Connection
     protected $sintax = ''; // (string)
 
+    /**
+     * The constructor function takes a Connection object as a parameter. If no Connection object is
+     * passed, it creates a new Connection object
+     * 
+     * @param Connection connection The connection to use for this query. If null, the default
+     * connection will be used.
+     */
+
     public function __construct(Connection $connection = null)
     {
         $this->setConnection($connection);
     }
+
+    /**
+     * If the method exists on the connection, call it
+     * 
+     * @param string method The name of the method that was called.
+     * @param array arguments The arguments passed to the method.
+     * 
+     * @return The connection object.
+     */
 
     public function __call(string $method, array $arguments)
     {
@@ -26,10 +45,25 @@ class Statement extends Bind
         throw new CustomException('developer/database/statement/method' . chr(47) . $method);
     }
 
+    /**
+     * Returns the value of the sintax property
+     * 
+     * @return The string that is being returned is the string that was passed into the constructor.
+     */
+
     public function get() : string
     {
         return trim($this->sintax);
     }
+
+    /**
+     * Append a string to the sintax
+     * 
+     * @param string string The string to append to the sintax.
+     * @param bool white If true, appends a space after the string.
+     * 
+     * @return Nothing.
+     */
 
     public function append(string $string, bool $white = true) : self
     {
@@ -38,11 +72,28 @@ class Statement extends Bind
         return $this;
     }
 
+    /**
+     * The set function sets the sintax property to the string passed to it
+     * 
+     * @param string string The string to be parsed.
+     * 
+     * @return Nothing.
+     */
+
     public function set(string $string) : self
     {
         $this->sintax = $string;
         return $this;
     }
+
+    /**
+     * If the statement is null, return this. Otherwise, append the statement's query to this query and
+     * push the statement's bind parameters to this query's bind parameters
+     * 
+     * @param statement The statement to append to the current statement.
+     * 
+     * @return The same instance of the class.
+     */
 
     public function concat(?self $statement) : self
     {
@@ -52,10 +103,22 @@ class Statement extends Bind
         return $this;
     }
 
+    /**
+     * Returns the connection object
+     * 
+     * @return A connection object.
+     */
+
     public function getConnection() :? Connection
     {
         return $this->connection;
     }
+
+    /**
+     * The setConnection function sets the connection property to the value of the connection parameter
+     * 
+     * @param connection The connection to the database.
+     */
 
     protected function setConnection(?Connection $connection) : void
     {

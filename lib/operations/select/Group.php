@@ -7,10 +7,18 @@ use KSQL\operations\Select;
 use KSQL\operations\select\group\Collection;
 use KSQL\dialects\constraint\Dialect;
 
+/* The Group class is used to group the results of a query */
+
 class Group extends Bind
 {
     protected $having;           // (string)
     protected $collections = []; // (array) Collection
+
+    /**
+     * Clone the object and all its properties
+     * 
+     * @return The object itself.
+     */
 
     public function __clone()
     {
@@ -23,6 +31,16 @@ class Group extends Bind
             $clone = clone $item;
         });
     }
+
+    /**
+     * It takes a string, replaces all instances of the variable prefix with the bound variable, and
+     * returns the string
+     * 
+     * @param Dialect dialect The dialect to use.
+     * @param having The SQL having clause.
+     * 
+     * @return The query object.
+     */
 
     public function setHaving(Dialect $dialect, ?string $having, string ...$data) : self
     {
@@ -41,10 +59,22 @@ class Group extends Bind
         return $this;
     }
 
+    /**
+     * Returns the having clause of the query
+     * 
+     * @return The having clause of the query.
+     */
+
     public function getHaving() :? string
     {
         return $this->having;
     }
+
+    /**
+     * The function takes in an array of collections and sets the collections property to that array
+     * 
+     * @return Nothing.
+     */
 
     public function setCollections(Collection ...$collections) : self
     {
@@ -52,11 +82,27 @@ class Group extends Bind
         return $this;
     }
 
+    /**
+     * AddCollections() adds a collection to the array of collections
+     * 
+     * @return Nothing.
+     */
+
     public function addCollections(Collection ...$collections) : self
     {
         array_push($this->collections, ...$collections);
         return $this;
     }
+
+    /**
+     * It returns the columns of the collections
+     * 
+     * @param select The Select object that will be used to get the columns.
+     * @param bool name If true, the function will return an array of column names instead of an array
+     * of column definitions.
+     * 
+     * @return The columns of the tables in the database.
+     */
 
     public function getColumns(?Select $select = null, bool $name = false) : array
     {
@@ -71,6 +117,12 @@ class Group extends Bind
         $collections_condition = call_user_func_array('array_merge', $collections_condition);
         return false === $name ? $collections_condition : array_keys($collections_condition);
     }
+
+    /**
+     * This function returns an array of the collections that are available to the user
+     * 
+     * @return An array of the collections that are being used in the application.
+     */
 
     protected function getCollections() : array
     {

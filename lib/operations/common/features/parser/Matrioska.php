@@ -10,14 +10,33 @@ use KSQL\entity\Table;
 use KSQL\dialects\constraint\Dialect;
 use KSQL\operations\Select;
 
+/* The trait is used to add a method to the class. */
+
 trait Matrioska
 {
     protected static $closure; // Closure
+
+    /**
+     * Set the closure to be called when the event is triggered
+     * 
+     * @param Closure callable The callable to be called when the event is triggered.
+     */
 
     public static function setClosure(Closure $callable) : void
     {
         static::$closure = $callable;
     }
+
+    /**
+     * If the field is a reference to a table, then the table is joined to the child table
+     * 
+     * @param Dialect dialect The dialect of the database.
+     * @param Table child The table that is being joined to the parent table.
+     * @param string type The type of the field.
+     * @param Table table The table that is being joined to.
+     * 
+     * @return Nothing.
+     */
 
     protected static function matrioska(Dialect $dialect, Table $child, string $type, Table $table = null) : void
     {
@@ -71,10 +90,26 @@ trait Matrioska
         }
     }
 
+    /**
+     * Get the closure that is used to generate the class.
+     * 
+     * @return A closure.
+     */
+
     protected static function getClosure() :? Closure
     {
         return static::$closure;
     }
+
+    /**
+     * If the child table has an adapter,
+     * then the adapter's columns are used to determine if the child table is default.
+     * If the child table has no adapter, then the child table is default if it has no columns
+     * 
+     * @param Table child The child table.
+     * 
+     * @return A boolean value.
+     */
 
     protected static function acquiesce(Table $child) : bool
     {

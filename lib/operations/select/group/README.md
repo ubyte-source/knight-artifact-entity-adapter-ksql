@@ -1,4 +1,4 @@
-# Documentation knight-artifact-entity-adapter-ksql
+#### Documentation knight-artifact-entity-adapter-ksql
 
 > Knight PHP library for build query in SQL; the default dialect implement is MySQL.
 
@@ -27,29 +27,29 @@ that project.
     - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
     - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-> ## ***Class KSQL\operations\select\group\Collection usable methods***
+## ***Class KSQL\operations\select\group\Collection usable methods***
 
-# Documentation
+#### Documentation
 
-## `public function __construct(Table $table, string ...$fields)`
+##### `public function __construct(Table $table, string ...$fields)`
 
 The constructor takes a table and a list of fields and sets them as the fields of the object
 
  * **Parameters:** `Table` — The table to which the query will be applied.
 
-## `public function setFields(string ...$fields) : self`
+##### `public function setFields(string ...$fields) : self`
 
 This function sets the fields that will be group statement in the query
 
  * **Returns:** `The` — object itself.
 
-## `public function getFields() : array`
+##### `public function getFields() : array`
 
 Returns an array of the fields in the table
 
  * **Returns:** `An` — array of field names.
 
-## `public function elaborate(?Select $select) : array`
+##### `public function elaborate(?Select $select) : array`
 
 This function returns an array of the columns that are in the table that this field is in
 

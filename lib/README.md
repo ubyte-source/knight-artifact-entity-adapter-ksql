@@ -27,11 +27,11 @@ that project.
     - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
     - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-> ## ***Class KSQL\Factory usable methods***
+## ***Class KSQL\Factory usable methods***
 
-# Documentation
+#### Documentation
 
-## `public static function connect(string $dialect = 'KSQL\\dialects\\MySQL', string $constant = 'DEFAULT') : Connection`
+##### `public static function connect(string $dialect = 'KSQL\\dialects\\MySQL', string $constant = 'DEFAULT') : Connection`
 
 Creates a new connection to a database
 
@@ -42,7 +42,7 @@ Creates a new connection to a database
      <p>
  * **Returns:** `A` — connection object.
 
-## `public static function disconnect(string $hash) : self`
+##### `public static function disconnect(string $hash) : self`
 
 This function disconnects a database from the pool
 
@@ -51,13 +51,13 @@ This function disconnects a database from the pool
      <p>
  * **Returns:** `This` — class itself.
 
-## `public static function dialHash(string ...$arguments) : string`
+##### `public static function dialHash(string ...$arguments) : string`
 
 This function takes an array of strings and returns a hash of the array
 
  * **Returns:** `A` — string.
 
-## `public static function searchConnectionFromHash(string $hash) :? Connection`
+##### `public static function searchConnectionFromHash(string $hash) :? Connection`
 
 Given a hash, return the connection object that has that hash.
 
@@ -68,23 +68,23 @@ The function is a bit long, but it's not too bad. The first thing we do is loop 
      <p>
  * **Returns:** `A` — Connection object or null.
 
-> ## ***Class KSQL\Initiator usable methods***
+## ***Class KSQL\Initiator usable methods***
 
-# Documentation
+#### Documentation
 
-## `public static function getNamespaceName() : string`
+##### `public static function getNamespaceName() : string`
 
 Returns the namespace name of the class
 
  * **Returns:** `The` — namespace name of the class.
 
-## `public function __clone()`
+##### `public function __clone()`
 
 Clone the object and all its properties
 
  * **Returns:** `The` — object itself.
 
-## `public function __call(string $method, array $arguments) : Base`
+##### `public function __call(string $method, array $arguments) : Base`
 
 If the method called is a valid operation, create an instance of the operation class and return it
 
@@ -95,7 +95,7 @@ If the method called is a valid operation, create an instance of the operation c
      <p>
  * **Returns:** `An` — instance of the operation class.
 
-## `public static function start(?Connection $connection, Table $table) : self`
+##### `public static function start(?Connection $connection, Table $table) : self`
 
 This function creates a new instance of the class and sets the connection and table properties
 
@@ -106,23 +106,23 @@ This function creates a new instance of the class and sets the connection and ta
      <p>
  * **Returns:** `An` — instance of the class.
 
-## `public function getTable() : Table`
+##### `public function getTable() : Table`
 
 Returns the table object associated with this class
 
  * **Returns:** `The` — table object.
 
-## `public function getConnection() :? Connection`
+##### `public function getConnection() :? Connection`
 
 Returns the connection object
 
  * **Returns:** `A` — connection object.
 
-> ## ***Class KSQL\Statement usable methods***
+## ***Class KSQL\Statement usable methods***
 
-# Documentation
+#### Documentation
 
-## `public function __construct(Connection $connection = null)`
+##### `public function __construct(Connection $connection = null)`
 
 The constructor function takes a Connection object as a parameter. If no Connection object is passed, it creates a new Connection object
 
@@ -130,7 +130,7 @@ The constructor function takes a Connection object as a parameter. If no Connect
 
      connection will be used.
 
-## `public function __call(string $method, array $arguments)`
+##### `public function __call(string $method, array $arguments)`
 
 If the method exists on the connection, call it
 
@@ -141,13 +141,13 @@ If the method exists on the connection, call it
      <p>
  * **Returns:** `The` — connection object.
 
-## `public function get() : string`
+##### `public function get() : string`
 
 Returns the value of the sintax property
 
  * **Returns:** `The` — string that is being returned is the string that was passed into the constructor.
 
-## `public function append(string $string, bool $white = true) : self`
+##### `public function append(string $string, bool $white = true) : self`
 
 Append a string to the sintax
 
@@ -158,7 +158,7 @@ Append a string to the sintax
      <p>
  * **Returns:** `Nothing.` — 
 
-## `public function set(string $string) : self`
+##### `public function set(string $string) : self`
 
 The set function sets the sintax property to the string passed to it
 
@@ -167,7 +167,7 @@ The set function sets the sintax property to the string passed to it
      <p>
  * **Returns:** `Nothing.` — 
 
-## `public function concat(?self $statement) : self`
+##### `public function concat(?self $statement) : self`
 
 If the statement is null, return this. Otherwise, append the statement's query to this query and push the statement's bind parameters to this query's bind parameters
 
@@ -176,7 +176,7 @@ If the statement is null, return this. Otherwise, append the statement's query t
      <p>
  * **Returns:** `The` — same instance of the class.
 
-## `public function getConnection() :? Connection`
+##### `public function getConnection() :? Connection`
 
 Returns the connection object
 

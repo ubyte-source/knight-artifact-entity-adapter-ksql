@@ -1,4 +1,4 @@
-# Documentation knight-artifact-entity-adapter-ksql
+#### Documentation knight-artifact-entity-adapter-ksql
 
 > Knight PHP library for build query in SQL; the default dialect implement is MySQL.
 
@@ -27,11 +27,11 @@ that project.
     - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
     - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-> ## ***Class KSQL\operations\common\features\Parser usable methods***
+## ***Class KSQL\operations\common\features\Parser usable methods***
 
-# Documentation
+#### Documentation
 
-## `public static function tables(Dialect $dialect, Table $data, string $origin, string ...$skip) : array`
+##### `public static function tables(Dialect $dialect, Table $data, string $origin, string ...$skip) : array`
 
 It takes a Dialect, a Table, an origin, and an array of hashes. It then recursively calls itself on all of the Table's joined tables, and adds the resulting Query objects to an array
 
@@ -43,7 +43,7 @@ It takes a Dialect, a Table, an origin, and an array of hashes. It then recursiv
      <p>
  * **Returns:** `An` — array of Query objects.
 
-## `public static function uniqueness(Table $table) :? array`
+##### `public static function uniqueness(Table $table) :? array`
 
 This function returns the columns that are unique in the table
 
@@ -52,7 +52,7 @@ This function returns the columns that are unique in the table
      <p>
  * **Returns:** `An` — array of the columns that are unique.
 
-## `public static function getUniquenessMatch(Table $table, Table $child, bool $filtered = true) :? array`
+##### `public static function getUniquenessMatch(Table $table, Table $child, bool $filtered = true) :? array`
 
 It takes a table and a child table, and returns the fields that are unique to the child table
 
@@ -66,9 +66,9 @@ It takes a table and a child table, and returns the fields that are unique to th
 
  ## ***Class KSQL\operations\common\features\Where usable methods***
 
- # Documentation
+ #### Documentation
 
-## `public function setWhereStatement(Statement $statement) : self`
+##### `public function setWhereStatement(Statement $statement) : self`
 
 The setWhereStatement function takes a Statement object as a parameter and sets the where property to that object
 
@@ -77,7 +77,7 @@ The setWhereStatement function takes a Statement object as a parameter and sets 
      <p>
  * **Returns:** `The` — object itself.
 
-## `public function where(Dialect $dialect, Table $data, string ...$skip) : Statement`
+##### `public function where(Dialect $dialect, Table $data, string ...$skip) : Statement`
 
 This function is responsible for generating the WHERE clause of the SQL statement
 
@@ -88,7 +88,7 @@ This function is responsible for generating the WHERE clause of the SQL statemen
      <p>
  * **Returns:** `The` — statement object.
 
-## `public function pushTablesUsingOr(Table ...$tables) : int`
+##### `public function pushTablesUsingOr(Table ...$tables) : int`
 
 It pushes the tables into the tables array.
 

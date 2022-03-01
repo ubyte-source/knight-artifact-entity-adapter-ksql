@@ -1,4 +1,4 @@
-# Documentation knight-artifact-entity-adapter-ksql
+#### Documentation knight-artifact-entity-adapter-ksql
 
 > Knight PHP library for build query in SQL; the default dialect implement is MySQL.
 
@@ -27,39 +27,39 @@ that project.
     - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
     - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-> ## ***Class KSQL\operations\common\features\parser\Matrioska usable methods***
+## ***Class KSQL\operations\common\features\parser\Matrioska usable methods***
 
-#### Documentation
+####### Documentation
 
-##### `public static function setClosure(Closure $callable) : void`
+######## `public static function setClosure(Closure $callable) : void`
 
 Set the closure to be called when the event is triggered
 
  * **Parameters:** `Closure` — The callable to be called when the event is triggered.
 
-> ## ***Class KSQL\operations\common\features\parser\Query usable methods***
+## ***Class KSQL\operations\common\features\parser\Query usable methods***
 
-#### Documentation
+####### Documentation
 
-##### `public function __clone()`
+######## `public function __clone()`
 
 Clone the object and all its properties
 
  * **Returns:** `The` — cloned object.
 
-##### `final public function __construct(Table $table)`
+######## `final public function __construct(Table $table)`
 
 The constructor for the class
 
  * **Parameters:** `Table` — The table object that this class is associated with.
 
-##### `public function getTable() : Table`
+######## `public function getTable() : Table`
 
 Returns the table object associated with this class
 
  * **Returns:** `The` — table object.
 
-##### `public function setStatement(Statement $statement) : self`
+######## `public function setStatement(Statement $statement) : self`
 
 The setStatement function sets the statement property to the given statement
 
@@ -68,7 +68,7 @@ The setStatement function sets the statement property to the given statement
      <p>
  * **Returns:** `The` — object itself.
 
-##### `public function getStatement() :? Statement`
+######## `public function getStatement() :? Statement`
 
 Returns the statement object associated with this object
 

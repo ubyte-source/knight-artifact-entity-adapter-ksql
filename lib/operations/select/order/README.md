@@ -1,4 +1,4 @@
-# Documentation knight-artifact-entity-adapter-ksql
+#### Documentation knight-artifact-entity-adapter-ksql
 
 > Knight PHP library for build query in SQL; the default dialect implement is MySQL.
 
@@ -27,11 +27,11 @@ that project.
     - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
     - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-> ## ***Class KSQL\operations\select\order\Direction usable methods***
+## ***Class KSQL\operations\select\order\Direction usable methods***
 
-# Documentation
+#### Documentation
 
-## `public function __construct(Table $table, string $name)`
+##### `public function __construct(Table $table, string $name)`
 
 The constructor for the class takes a table and a name, and sets the direction to ascending
 
@@ -39,7 +39,7 @@ The constructor for the class takes a table and a name, and sets the direction t
    * `Table` — The table object that this column belongs to.
    * `string` — The name of the column.
 
-## `public function setDirection(int $direction) : self`
+##### `public function setDirection(int $direction) : self`
 
 Set the direction of the order by clause.
 
@@ -48,13 +48,13 @@ Set the direction of the order by clause.
      <p>
  * **Returns:** `Nothing.` — 
 
-## `public function getDirection() : int`
+##### `public function getDirection() : int`
 
 Get the direction of the column.
 
  * **Returns:** `The` — direction of the column.
 
-## `public function elaborate(?Select $select) : string`
+##### `public function elaborate(?Select $select) : string`
 
 This function returns the direction of the field
 
@@ -63,11 +63,11 @@ This function returns the direction of the field
      <p>
  * **Returns:** `The` — direction of the field.
 
- > ## ***Class KSQL\operations\select\order\Field usable methods***
+ ## ***Class KSQL\operations\select\order\Field usable methods***
 
-# Documentation
+#### Documentation
 
-## `public function __construct(Table $table, string $name)`
+##### `public function __construct(Table $table, string $name)`
 
 Constructor for the class
 
@@ -75,19 +75,19 @@ Constructor for the class
    * `Table` — The table that this column belongs to.
    * `string` — The name of the column.
 
-## `public function setOptions(string ...$options) : self`
+##### `public function setOptions(string ...$options) : self`
 
 This function sets the options for the field
 
  * **Returns:** `Nothing.` — 
 
-## `public function getOptions() : array`
+##### `public function getOptions() : array`
 
 This function returns the options array
 
  * **Returns:** `An` — array of options.
 
-## `public function elaborate(?Select $select) : string`
+##### `public function elaborate(?Select $select) : string`
 
 This function returns the options for the field
 

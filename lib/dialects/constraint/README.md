@@ -1,4 +1,4 @@
-# Documentation knight-artifact-entity-adapter-ksql
+#### Documentation knight-artifact-entity-adapter-ksql
 
 > Knight PHP library for build query in SQL; the default dialect implement is MySQL.
 
@@ -27,7 +27,7 @@ that project.
     - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
     - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-> ## ***Class KSQL\dialects\constraint\Dialect usable methods***
+## ***Class KSQL\dialects\constraint\Dialect usable methods***
 
 This has to be an abstract class that you must extend in the drivers that you want to create.
 

@@ -1,4 +1,4 @@
-# Documentation knight-artifact-entity-adapter-ksql
+#### Documentation knight-artifact-entity-adapter-ksql
 
 > Knight PHP library for build query in SQL; the default dialect implement is MySQL.
 
@@ -27,13 +27,13 @@ that project.
     - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
     - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-> ## ***Class KSQL\dialects\MySQL usable methods***
+## ***Class KSQL\dialects\MySQL usable methods***
 
 All the files contain in the KSQL\dialects route are used by the library to build the query.
 
-#### Documentation
+####### Documentation
 
-##### `public static function Connection(string $constant = 'DEFAULT') : Connection`
+######## `public static function Connection(string $constant = 'DEFAULT') : Connection`
 
 This function returns a PDO connection object
 
@@ -42,13 +42,13 @@ This function returns a PDO connection object
      <p>
  * **Returns:** `A` — PDO connection driver object.
 
-##### `public static function BindCharacter() : string`
+######## `public static function BindCharacter() : string`
 
 Returns the character 58
 
  * **Returns:** `The` — character 58.
 
-##### `public static function ToJSON(Select $select) : string`
+######## `public static function ToJSON(Select $select) : string`
 
 This function returns the JSON_OBJECT or JSON_ARRAYAGG function with the column names as the arguments
 
@@ -57,7 +57,7 @@ This function returns the JSON_OBJECT or JSON_ARRAYAGG function with the column 
      <p>
  * **Returns:** `The` — JSON_OBJECT function is being used to create a JSON object from the column names.
 
-##### `public static function LastInsertID(Table $table) : string`
+######## `public static function LastInsertID(Table $table) : string`
 
 This function returns the last inserted ID of a table
 
@@ -66,7 +66,7 @@ This function returns the last inserted ID of a table
      <p>
  * **Returns:** `The` — last insert id of the table.
 
-##### `public static function AnyValue(string $elaborate) : string`
+######## `public static function AnyValue(string $elaborate) : string`
 
 Returns the value of the specified element
 
@@ -75,7 +75,7 @@ Returns the value of the specified element
      <p>
  * **Returns:** `The` — string 'ANY_VALUE(elaborate)'
 
-##### `public static function FileReplacer(string $filtered) :? string`
+######## `public static function FileReplacer(string $filtered) :? string`
 
 This function takes a string and returns a string that is a base64 encoded version of the input string
 
@@ -84,7 +84,7 @@ This function takes a string and returns a string that is a base64 encoded versi
      <p>
  * **Returns:** `The` — REPLACE function is being returned.
 
-##### `public static function Limit(Statement $statement, Limit $limit) : void`
+######## `public static function Limit(Statement $statement, Limit $limit) : void`
 
 This function is used to limit the number of rows returned by a query
 
@@ -95,7 +95,7 @@ This function is used to limit the number of rows returned by a query
      <p>
  * **Returns:** `Nothing.` — 
 
-##### `public static function NaturalJoin(string $table) : string`
+######## `public static function NaturalJoin(string $table) : string`
 
 This function returns a string that is a natural join of the table name
 

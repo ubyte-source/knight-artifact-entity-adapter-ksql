@@ -1,4 +1,4 @@
-# Documentation knight-artifact-entity-adapter-ksql
+#### Documentation knight-artifact-entity-adapter-ksql
 
 > Knight PHP library for build query in SQL; the default dialect implement is MySQL.
 
@@ -27,11 +27,11 @@ that project.
     - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
     - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-> ## ***Class KSQL\operations\select\order\base\Column usable methods***
+## ***Class KSQL\operations\select\order\base\Column usable methods***
 
-# Documentation
+#### Documentation
 
-## `public function __construct(Table $table, string $name)`
+##### `public function __construct(Table $table, string $name)`
 
 The constructor for the class
 
@@ -39,13 +39,13 @@ The constructor for the class
    * `Table` — The table object that this column belongs to.
    * `string` — The name of the column.
 
-## `public function getName() : string`
+##### `public function getName() : string`
 
 "Get the name of the column."
 
  * **Returns:** `The` — name of the object.
 
-## `public function getNameElaborate(?Select $select) : string`
+##### `public function getNameElaborate(?Select $select) : string`
 
 Returns the name of the column, with a prefix of the table name if the column is not in the group
 

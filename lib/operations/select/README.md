@@ -1,4 +1,4 @@
-# Documentation knight-artifact-entity-adapter-ksql
+#### Documentation knight-artifact-entity-adapter-ksql
 
 > Knight PHP library for build query in SQL; the default dialect implement is MySQL.
 
@@ -27,17 +27,17 @@ that project.
     - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
     - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-> ## ***Class KSQL\operations\select\Alias usable methods***
+## ***Class KSQL\operations\select\Alias usable methods***
 
-# Documentation
+#### Documentation
 
-## `public function __construct(Table $table)`
+##### `public function __construct(Table $table)`
 
 The constructor for the class
 
  * **Parameters:** `Table` — The table to be used by the model.
 
-## `public function setName(string $name) : string`
+##### `public function setName(string $name) : string`
 
 Set the name of the alias to the given name.
 
@@ -46,23 +46,23 @@ Set the name of the alias to the given name.
      <p>
  * **Returns:** `The` — object itself.
 
-## `public function getName() : string`
+##### `public function getName() : string`
 
 Get the name of the person.
 
  * **Returns:** `The` — name of the alias.
 
-> ## ***Class KSQL\operations\select\Group usable methods***
+## ***Class KSQL\operations\select\Group usable methods***
 
-# Documentation
+#### Documentation
 
-## `public function __clone()`
+##### `public function __clone()`
 
 Clone the object and all its properties
 
  * **Returns:** `The` — object itself.
 
-## `public function setHaving(Dialect $dialect, ?string $having, string ...$data) : self`
+##### `public function setHaving(Dialect $dialect, ?string $having, string ...$data) : self`
 
 It takes a string, replaces all instances of the variable prefix with the bound variable, and returns the string
 
@@ -73,25 +73,25 @@ It takes a string, replaces all instances of the variable prefix with the bound 
      <p>
  * **Returns:** `The` — query object.
 
-## `public function getHaving() :? string`
+##### `public function getHaving() :? string`
 
 Returns the having clause of the query
 
  * **Returns:** `The` — having clause of the query.
 
-## `public function setCollections(Collection ...$collections) : self`
+##### `public function setCollections(Collection ...$collections) : self`
 
 The function takes in an array of collections and sets the collections property to that array
 
  * **Returns:** `Nothing.` — 
 
-## `public function addCollections(Collection ...$collections) : self`
+##### `public function addCollections(Collection ...$collections) : self`
 
 AddCollections() adds a collection to the array of collections
 
  * **Returns:** `Nothing.` — 
 
-## `public function getColumns(?Select $select = null, bool $name = false) : array`
+##### `public function getColumns(?Select $select = null, bool $name = false) : array`
 
 It returns the columns of the collections
 
@@ -104,17 +104,17 @@ It returns the columns of the collections
      <p>
  * **Returns:** `The` — columns of the tables in the database.
 
-> ## ***Class KSQL\operations\select\Join usable methods***
+## ***Class KSQL\operations\select\Join usable methods***
 
-# Documentation
+#### Documentation
 
-## `public function __construct(Table $table)`
+##### `public function __construct(Table $table)`
 
 Constructor for the inner join
 
  * **Parameters:** `Table` — The table object that is being joined.
 
-## `public function setType(int $type) : self`
+##### `public function setType(int $type) : self`
 
 Set the type of join.
 
@@ -123,13 +123,13 @@ Set the type of join.
      <p>
  * **Returns:** `Nothing.` — 
 
-## `public function getType() : int`
+##### `public function getType() : int`
 
 Get the type of the object
 
  * **Returns:** `The` — type of the question.
 
-## `public function addCondition(string $condition) : self`
+##### `public function addCondition(string $condition) : self`
 
 Add a condition to the query
 
@@ -138,19 +138,19 @@ Add a condition to the query
      <p>
  * **Returns:** `The` — object itself.
 
-## `public function getConditions() : array`
+##### `public function getConditions() : array`
 
 Returns the conditions array
 
  * **Returns:** `An` — array of conditions.
 
-## `public function getConditionsBuilded() :? string`
+##### `public function getConditionsBuilded() :? string`
 
 This function returns the conditions that are used in the ON statement
 
  * **Returns:** `The` — conditions that are being used in the join.
 
-## `public function setUsingList(bool $enable = true) : self`
+##### `public function setUsingList(bool $enable = true) : self`
 
 The setUsingList function sets the using property to the value of the enable parameter
 
@@ -159,19 +159,19 @@ The setUsingList function sets the using property to the value of the enable par
      <p>
  * **Returns:** `Nothing.` — 
 
-## `public function getUsingList() : bool`
+##### `public function getUsingList() : bool`
 
 Returns the value of the using property
 
  * **Returns:** `A` — boolean value.
 
-## `public function getAlias() : Alias`
+##### `public function getAlias() : Alias`
 
 Get the alias of this joined table.
 
  * **Returns:** `The` — Alias joined table.
 
-## `public function getFieldParsed(string $name) : string`
+##### `public function getFieldParsed(string $name) : string`
 
 Returns the name of the field in the table, with the table alias prepended
 
@@ -180,11 +180,11 @@ Returns the name of the field in the table, with the table alias prepended
      <p>
  * **Returns:** `The` — field name with the table alias.
  
-> ## ***Class KSQL\operations\select\Limit usable methods***
+## ***Class KSQL\operations\select\Limit usable methods***
 
-# Documentation
+#### Documentation
 
-## `public function set(int $limit) : self`
+##### `public function set(int $limit) : self`
 
 Set the limit of the query.
 
@@ -193,13 +193,13 @@ Set the limit of the query.
      <p>
  * **Returns:** `Nothing.` — 
 
-## `public function get() :? int`
+##### `public function get() :? int`
 
 Get the value of the limit property.
 
  * **Returns:** `The` — limit value.
 
-## `public function setOffset(int $offset) : self`
+##### `public function setOffset(int $offset) : self`
 
 Set the offset of the current status
 
@@ -208,35 +208,35 @@ Set the offset of the current status
      <p>
  * **Returns:** `Nothing.` — 
 
-## `public function getOffset() :? int`
+##### `public function getOffset() :? int`
 
 Get the offset of the current position in the file.
 
  * **Returns:** `The` — offset of the current position in the file.
 
-> ## ***Class KSQL\operations\select\Order usable methods***
+## ***Class KSQL\operations\select\Order usable methods***
 
-# Documentation
+#### Documentation
 
-## `public function __clone()`
+##### `public function __clone()`
 
 Clone the object and all its properties
 
  * **Returns:** `The` — object itself.
 
-## `public function pushDirections(Direction ...$directions) : self`
+##### `public function pushDirections(Direction ...$directions) : self`
 
 The function takes an array of Direction objects and pushes them into the collections array
 
  * **Returns:** `Nothing.` — 
 
-## `public function pushFields(Field ...$fields) : self`
+##### `public function pushFields(Field ...$fields) : self`
 
 This function adds a field to the collection of fields
 
  * **Returns:** `Nothing.` — 
 
-## `public function getColumns(?Select $select) : array`
+##### `public function getColumns(?Select $select) : array`
 
 This function returns an array of Column objects that are associated with this table
 
@@ -245,7 +245,7 @@ This function returns an array of Column objects that are associated with this t
      <p>
  * **Returns:** `An` — array of strings.
 
-## `public function getCollections() : array`
+##### `public function getCollections() : array`
 
 This function returns an array of all the collections in this order statement
 

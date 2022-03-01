@@ -1,4 +1,4 @@
-# Documentation knight-artifact-entity-adapter-ksql
+#### Documentation knight-artifact-entity-adapter-ksql
 
 > Knight PHP library for build query in SQL; the default dialect implement is MySQL.
 
@@ -27,17 +27,17 @@ that project.
     - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
     - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-> ## ***Class KSQL\adapters\map\common\Injection usable methods***
+## ***Class KSQL\adapters\map\common\Injection usable methods***
 
-#### Documentation
+####### Documentation
 
-##### `public function getColumns() : array`
+######## `public function getColumns() : array`
 
 Returns an array of the columns in the table
 
  * **Returns:** `An` — array of column names.
 
-##### `public static function getConstants(string $instance) : array`
+######## `public static function getConstants(string $instance) : array`
 
 Get all the constants from a class
 
@@ -46,7 +46,7 @@ Get all the constants from a class
      <p>
  * **Returns:** `An` — array of constants.
 
-##### `public function addColumn(Dialect $dialect, string $field_name, string $value, ?string ...$data) : self`
+######## `public function addColumn(Dialect $dialect, string $field_name, string $value, ?string ...$data) : self`
 
 It takes a field name and a value, and adds them to the columns array
 
@@ -81,7 +81,7 @@ $table->getInjection()->addColumn($table_query_connection_dialect,
 
 ```
 
-##### `public function addColumnSelect(Dialect $dialect, string $field_name, Select $select, bool $json = false) : self`
+######## `public function addColumnSelect(Dialect $dialect, string $field_name, Select $select, bool $json = false) : self`
 
 This function adds a column to the select statement
 
@@ -134,7 +134,7 @@ $technical_query_update = $technical_query->update();
 
 ```
 
-##### `public function getColumnsParsed(int $type, ?string $prefix = null) : array`
+######## `public function getColumnsParsed(int $type, ?string $prefix = null) : array`
 
 This function will return an array of the columns that are being used in the query
 
@@ -145,29 +145,29 @@ This function will return an array of the columns that are being used in the que
      <p>
  * **Returns:** `The` — return value is an array of strings.
 
-> ## ***Class KSQL\adapters\map\common\JoinedTables usable methods***
+## ***Class KSQL\adapters\map\common\JoinedTables usable methods***
 
-#### Documentation
+####### Documentation
 
-##### `public function __clone()`
+######## `public function __clone()`
 
 Clone the object and all its properties
 
  * **Returns:** `The` — object itself.
 
-##### `public function pushTables(Table ...$tables) : int`
+######## `public function pushTables(Table ...$tables) : int`
 
 *This function pushes a table onto the tables array.*
 
  * **Returns:** `The` — number of tables pushed.
 
-##### `public function getTablesByName(string ...$names) : array`
+######## `public function getTablesByName(string ...$names) : array`
 
 Given a list of table names, return a list of tables that match those names
 
  * **Returns:** `An` — array of Table objects.
 
-##### `public function getTables() : array`
+######## `public function getTables() : array`
 
 Returns an array of all the tables in the database
 

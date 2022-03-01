@@ -1,4 +1,4 @@
-# Documentation knight-artifact-entity-adapter-ksql
+#### Documentation knight-artifact-entity-adapter-ksql
 
 > Knight PHP library for build query in SQL; the default dialect implement is MySQL.
 
@@ -27,17 +27,17 @@ that project.
     - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
     - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-> ## ***Class KSQL\operations\common\Base usable methods***
+## ***Class KSQL\operations\common\Base usable methods***
 
-# Documentation
+#### Documentation
 
-## `final public function __clone()`
+##### `final public function __clone()`
 
 It clones the object and all of its properties
 
  * **Returns:** `Nothing.` — 
 
-## `final public function __construct(Initiator $core, array $arguments)`
+##### `final public function __construct(Initiator $core, array $arguments)`
 
 The __construct function is called when a new instance of the class is created
 
@@ -45,27 +45,27 @@ The __construct function is called when a new instance of the class is created
    * `Initiator` — The core object.
    * `array` — An array of arguments passed to the constructor.
 
-> ## ***Class KSQL\operations\common\Handling usable methods***
+## ***Class KSQL\operations\common\Handling usable methods***
 
-# Documentation
+#### Documentation
 
-## `public function run()`
+##### `public function run()`
 
 The function runs the queries and returns the result of the last query
 
  * **Returns:** `The` — result of the last query executed.
 
-## `public function setSkip(Table ...$skip) : self`
+##### `public function setSkip(Table ...$skip) : self`
 
 The setSkip function sets the skip property of the class to the value of the skip parameter
 
  * **Returns:** `Nothing.` — 
 
-> ## ***Class KSQL\operations\common\Option usable methods***
+## ***Class KSQL\operations\common\Option usable methods***
 
-# Documentation
+#### Documentation
 
-## `public static function getConstants(string $instance) : array`
+##### `public static function getConstants(string $instance) : array`
 
 Get all the constants from a class
 
@@ -74,13 +74,13 @@ Get all the constants from a class
      <p>
  * **Returns:** `An` — array of constants.
 
-## `public function __construct(Table $table)`
+##### `public function __construct(Table $table)`
 
 The constructor for the class
 
  * **Parameters:** `Table` — The table object that is being used to create the table.
 
-## `public function getTable() : Table`
+##### `public function getTable() : Table`
 
 Returns the table object associated with this object
 

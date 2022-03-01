@@ -1,4 +1,4 @@
-# Documentation knight-artifact-entity-adapter-ksql
+#### Documentation knight-artifact-entity-adapter-ksql
 
 > Knight PHP library for build query in SQL; the default dialect implement is MySQL.
 
@@ -27,27 +27,27 @@ that project.
     - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
     - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-> ## ***Class KSQL\operations\Delete usable methods***
+## ***Class KSQL\operations\Delete usable methods***
 
-# Documentation
+#### Documentation
 
-## `public function getQueries() : array`
-
-It takes a list of tables, and returns a list of queries
-
- * **Returns:** `An` — array of queries.
-
-> ## ***Class KSQL\operations\Insert usable methods***
-
-# Documentation
-
-## `public function getQueries() : array`
+##### `public function getQueries() : array`
 
 It takes a list of tables, and returns a list of queries
 
  * **Returns:** `An` — array of queries.
 
-## `public function setUpdate(bool $value = true) : self`
+## ***Class KSQL\operations\Insert usable methods***
+
+#### Documentation
+
+##### `public function getQueries() : array`
+
+It takes a list of tables, and returns a list of queries
+
+ * **Returns:** `An` — array of queries.
+
+##### `public function setUpdate(bool $value = true) : self`
 
 The setUpdate function sets the update property to the value passed in
 
@@ -56,13 +56,13 @@ The setUpdate function sets the update property to the value passed in
      <p>
  * **Returns:** `The` — object itself.
 
-## `public function getUpdate() : bool`
+##### `public function getUpdate() : bool`
 
 Returns true if the update flag is set.
 
  * **Returns:** `A` — boolean value.
 
-## `public function setIgnore(bool $value = true) : self`
+##### `public function setIgnore(bool $value = true) : self`
 
 Set the ignore flag to true or false.
 
@@ -71,17 +71,17 @@ Set the ignore flag to true or false.
      <p>
  * **Returns:** `Nothing.` — 
 
-## `public function getIgnore() : bool`
+##### `public function getIgnore() : bool`
 
 Get the value of the ignore property.
 
  * **Returns:** `A` — boolean value.
 
-> ## ***Class KSQL\operations\Select usable methods***
+## ***Class KSQL\operations\Select usable methods***
 
-# Documentation
+#### Documentation
 
-## `public static function getTableName(Table $table, ?Alias $alias = null) : string`
+##### `public static function getTableName(Table $table, ?Alias $alias = null) : string`
 
 Returns the name of the table
 
@@ -92,19 +92,19 @@ Returns the name of the table
      <p>
  * **Returns:** `The` — table name.
 
-## `public function pushJoin(Join ...$join) : self`
+##### `public function pushJoin(Join ...$join) : self`
 
 Add a join to the query
 
  * **Returns:** `The` — same object.
 
-## `public function getJoin() : array`
+##### `public function getJoin() : array`
 
 Returns the join array
 
  * **Returns:** `An` — array of the join statements.
 
-## `public function findJoin(Table $table) :? Join`
+##### `public function findJoin(Table $table) :? Join`
 
 Find a join in the current query by table hash
 
@@ -113,7 +113,7 @@ Find a join in the current query by table hash
      <p>
  * **Returns:** `A` — Join object or null.
 
-## `public function setDistinct(bool $distinct = true) : self`
+##### `public function setDistinct(bool $distinct = true) : self`
 
 The setDistinct method sets the distinct property to the value passed in
 
@@ -122,31 +122,31 @@ The setDistinct method sets the distinct property to the value passed in
      <p>
  * **Returns:** `The` — current instance of the class.
 
-## `public function getInjection() : Injection`
+##### `public function getInjection() : Injection`
 
 Get the injection for this object.
 
  * **Returns:** `The` — injection object.
 
-## `public function getGroup() : Group`
+##### `public function getGroup() : Group`
 
 Get the group that this user belongs to.
 
  * **Returns:** `The` — group object that is associated with the question.
 
-## `public function getOrder() : Order`
+##### `public function getOrder() : Order`
 
 Get the order object.
 
  * **Returns:** `The` — Order object that is associated with the OrderItem.
 
-## `public function getLimit() : Limit`
+##### `public function getLimit() : Limit`
 
 Get the limit.
 
  * **Returns:** `The` — limit object.
 
-## `public function useAlias(string $name = null) : self`
+##### `public function useAlias(string $name = null) : self`
 
 Creates a new Alias object and sets it as the current alias for this QueryBuilder
 
@@ -155,13 +155,13 @@ Creates a new Alias object and sets it as the current alias for this QueryBuilde
      <p>
  * **Returns:** `The` — current instance of the class.
 
-## `public function getAlias() :? Alias`
+##### `public function getAlias() :? Alias`
 
 Get the alias of this object.
 
  * **Returns:** `The` — alias object.
 
-## `public function setFromStatement(Statement $statement) : self`
+##### `public function setFromStatement(Statement $statement) : self`
 
 The setFromStatement function sets the from property of the class to the given statement
 
@@ -170,19 +170,19 @@ The setFromStatement function sets the from property of the class to the given s
      <p>
  * **Returns:** `The` — object itself.
 
-## `public function getTable() : Table`
+##### `public function getTable() : Table`
 
 Returns the table object for the current model
 
  * **Returns:** `A` — Table object.
 
-## `public function getConnection() :? Connection`
+##### `public function getConnection() :? Connection`
 
 Returns the connection object for the current request
 
  * **Returns:** `A` — connection object.
 
-## `public function getFieldParsed(Table $table, string $name) : string`
+##### `public function getFieldParsed(Table $table, string $name) : string`
 
 Given a table, return the field name
 
@@ -193,25 +193,25 @@ Given a table, return the field name
      <p>
  * **Returns:** `The` — field name.
 
-## `public function getFrom() : string`
+##### `public function getFrom() : string`
 
 This function returns the table name of the current model
 
  * **Returns:** `The` — table name.
 
-## `public function getStatement() : Statement`
+##### `public function getStatement() : Statement`
 
 This function returns a statement object that contains the SQL query that will be executed by the database
 
  * **Returns:** `The` — SQL statement.
 
-## `public function run()`
+##### `public function run()`
 
 This function runs the statement that was created in the constructor
 
  * **Returns:** `The` — statement object.
 
-## `public function getAllColumns(Dialect $dialect, Table $data, bool $required = false, Group $group = null) : array`
+##### `public function getAllColumns(Dialect $dialect, Table $data, bool $required = false, Group $group = null) : array`
 
 This function will return all the columns from the table and all the joined tables
 
@@ -226,11 +226,11 @@ This function will return all the columns from the table and all the joined tabl
 
      This includes the columns that are being joined.
 
-> ## ***Class KSQL\operations\Update usable methods***
+## ***Class KSQL\operations\Update usable methods***
 
-# Documentation
+#### Documentation
 
-## `public function getQueries() : array`
+##### `public function getQueries() : array`
 
 It returns an array of queries, each one of them is a statement that will be executed on the database
 

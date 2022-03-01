@@ -1,4 +1,4 @@
-#### Documentation knight-artifact-entity-adapter-ksql
+# Documentation knight-artifact-entity-adapter-ksql
 
 > Knight PHP library for build query in SQL; the default dialect implement is MySQL.
 

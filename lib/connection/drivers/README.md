@@ -29,7 +29,7 @@ that project.
 
 ## ***Class KSQL\connection\drivers\PDO usable methods***
 
-####### Documentation
+###### Documentation
 
 ######## `public static function converter(&$value) : void`
 

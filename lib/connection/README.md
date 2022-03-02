@@ -31,7 +31,7 @@ that project.
 
 This has to be an abstract class that you must extend in the drivers that you want to create.
 
-####### Documentation
+###### Documentation
 
 ######## `public static function dialect(string $dialect) : Dialect`
 

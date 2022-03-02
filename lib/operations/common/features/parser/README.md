@@ -29,7 +29,7 @@ that project.
 
 ## ***Class KSQL\operations\common\features\parser\Matrioska usable methods***
 
-####### Documentation
+###### Documentation
 
 ######## `public static function setClosure(Closure $callable) : void`
 
@@ -39,7 +39,7 @@ Set the closure to be called when the event is triggered
 
 ## ***Class KSQL\operations\common\features\parser\Query usable methods***
 
-####### Documentation
+###### Documentation
 
 ######## `public function __clone()`
 

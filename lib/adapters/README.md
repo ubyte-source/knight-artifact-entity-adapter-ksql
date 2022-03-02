@@ -31,7 +31,7 @@ that project.
 
 ## ***Class KSQL\adapters\Join usable methods***
 
-####### Documentation
+###### Documentation
 
 ######## `public function __construct()`
 

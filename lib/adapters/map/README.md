@@ -29,7 +29,7 @@ that project.
 
 ## ***Class KSQL\adapters\map\common\Injection usable methods***
 
-####### Documentation
+###### Documentation
 
 ######## `public function getColumns() : array`
 
@@ -147,7 +147,7 @@ This function will return an array of the columns that are being used in the que
 
 ## ***Class KSQL\adapters\map\common\JoinedTables usable methods***
 
-####### Documentation
+###### Documentation
 
 ######## `public function __clone()`
 

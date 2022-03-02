@@ -18,7 +18,9 @@ $ composer require knight/knight-artifact-entity-adapter-ksql
 
 ## Extensions
 
---
+Dialect extensions were created to be able to use different database language based on Structure Query Language easly.
+
+- [Google BigQuery](https://github.com/energia-source/knight-artifact-entity-adapter-ksql-dialect-bq)
 
 ## Configuration
 

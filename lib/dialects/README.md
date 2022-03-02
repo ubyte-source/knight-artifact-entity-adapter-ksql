@@ -31,7 +31,7 @@ that project.
 
 All the files contain in the KSQL\dialects route are used by the library to build the query.
 
-####### Documentation
+###### Documentation
 
 ######## `public static function Connection(string $constant = 'DEFAULT') : Connection`
 

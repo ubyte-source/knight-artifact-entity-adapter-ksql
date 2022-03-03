@@ -1,6 +1,6 @@
 # Documentation knight-artifact-entity-adapter-ksql
 
-> Knight PHP library for build query in SQL; the default dialect implement is MySQL.
+Knight PHP library for build query in SQL; the default dialect implement is MySQL.
 
 **NOTE:** This repository is part of [Knight](https://github.com/energia-source/knight). Any
 support requests, bug reports, or development contributions should be directed to
@@ -8,7 +8,7 @@ that project.
 
 ## Structure
 
-- library:
+library:
     - [KSQL\adapters\map\common](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters/map/common)
     - [KSQL\adapters\map](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters/map)
     - [KSQL\adapters](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters)
@@ -27,26 +27,23 @@ that project.
     - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
     - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-## ***Class KSQL\adapters\map\common\Injection usable methods***
+###### ***Class KSQL\adapters\map\common\Injection usable methods***
 
-###### Documentation
-
-######## `public function getColumns() : array`
+##### `public function getColumns() : array`
 
 Returns an array of the columns in the table
 
  * **Returns:** `An` — array of column names.
 
-######## `public static function getConstants(string $instance) : array`
+##### `public static function getConstants(string $instance) : array`
 
 Get all the constants from a class
 
  * **Parameters:** `string` — The instance of the class you want to get the constants of.
 
-     <p>
  * **Returns:** `An` — array of constants.
 
-######## `public function addColumn(Dialect $dialect, string $field_name, string $value, ?string ...$data) : self`
+##### `public function addColumn(Dialect $dialect, string $field_name, string $value, ?string ...$data) : self`
 
 It takes a field name and a value, and adds them to the columns array
 
@@ -55,7 +52,6 @@ It takes a field name and a value, and adds them to the columns array
    * `string` — The name of the field to be added to the query.
    * `string` — The value to be inserted into the column.
 
-     <p>
  * **Returns:** `The` — current instance of the class.
 
 So the basic add column code SQL injection into query:
@@ -81,7 +77,7 @@ $table->getInjection()->addColumn($table_query_connection_dialect,
 
 ```
 
-######## `public function addColumnSelect(Dialect $dialect, string $field_name, Select $select, bool $json = false) : self`
+##### `public function addColumnSelect(Dialect $dialect, string $field_name, Select $select, bool $json = false) : self`
 
 This function adds a column to the select statement
 
@@ -91,7 +87,6 @@ This function adds a column to the select statement
    * `Select` — The Select object that you want to add to the select statement.
    * `bool` — If true, the column will be treated as a JSON column.
 
-     <p>
  * **Returns:** `The` — column name.
 
 So the basic add column code SQL injection into query from another query select statement:
@@ -134,7 +129,7 @@ $technical_query_update = $technical_query->update();
 
 ```
 
-######## `public function getColumnsParsed(int $type, ?string $prefix = null) : array`
+##### `public function getColumnsParsed(int $type, ?string $prefix = null) : array`
 
 This function will return an array of the columns that are being used in the query
 
@@ -142,32 +137,29 @@ This function will return an array of the columns that are being used in the que
    * `int` — The type of the column.
    * `prefix` — prefix to use for the bind variables.
 
-     <p>
  * **Returns:** `The` — return value is an array of strings.
 
-## ***Class KSQL\adapters\map\common\JoinedTables usable methods***
+###### ***Class KSQL\adapters\map\common\JoinedTables usable methods***
 
-###### Documentation
-
-######## `public function __clone()`
+##### `public function __clone()`
 
 Clone the object and all its properties
 
  * **Returns:** `The` — object itself.
 
-######## `public function pushTables(Table ...$tables) : int`
+##### `public function pushTables(Table ...$tables) : int`
 
 *This function pushes a table onto the tables array.*
 
  * **Returns:** `The` — number of tables pushed.
 
-######## `public function getTablesByName(string ...$names) : array`
+##### `public function getTablesByName(string ...$names) : array`
 
 Given a list of table names, return a list of tables that match those names
 
  * **Returns:** `An` — array of Table objects.
 
-######## `public function getTables() : array`
+##### `public function getTables() : array`
 
 Returns an array of all the tables in the database
 

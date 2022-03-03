@@ -1,6 +1,6 @@
 # Documentation knight-artifact-entity-adapter-ksql
 
-> Knight PHP library for build query in SQL; the default dialect implement is MySQL.
+Knight PHP library for build query in SQL; the default dialect implement is MySQL.
 
 **NOTE:** This repository is part of [Knight](https://github.com/energia-source/knight). Any
 support requests, bug reports, or development contributions should be directed to
@@ -8,7 +8,7 @@ that project.
 
 ## Structure
 
-- library:
+library:
     - [KSQL\adapters\map\common](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters/map/common)
     - [KSQL\adapters\map](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters/map)
     - [KSQL\adapters](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters)
@@ -27,9 +27,7 @@ that project.
     - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
     - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-## ***Class KSQL\operations\Delete usable methods***
-
-#### Documentation
+###### ***Class KSQL\operations\Delete usable methods***
 
 ##### `public function getQueries() : array`
 
@@ -37,9 +35,7 @@ It takes a list of tables, and returns a list of queries
 
  * **Returns:** `An` — array of queries.
 
-## ***Class KSQL\operations\Insert usable methods***
-
-#### Documentation
+###### ***Class KSQL\operations\Insert usable methods***
 
 ##### `public function getQueries() : array`
 
@@ -53,7 +49,6 @@ The setUpdate function sets the update property to the value passed in
 
  * **Parameters:** `bool` — The value to set the property to.
 
-     <p>
  * **Returns:** `The` — object itself.
 
 ##### `public function getUpdate() : bool`
@@ -68,7 +63,6 @@ Set the ignore flag to true or false.
 
  * **Parameters:** `bool` — The value to set the property to.
 
-     <p>
  * **Returns:** `Nothing.` — 
 
 ##### `public function getIgnore() : bool`
@@ -77,9 +71,7 @@ Get the value of the ignore property.
 
  * **Returns:** `A` — boolean value.
 
-## ***Class KSQL\operations\Select usable methods***
-
-#### Documentation
+###### ***Class KSQL\operations\Select usable methods***
 
 ##### `public static function getTableName(Table $table, ?Alias $alias = null) : string`
 
@@ -89,7 +81,6 @@ Returns the name of the table
    * `Table` — The Table object that we're getting the table name for.
    * `alias` — alias of the table.
 
-     <p>
  * **Returns:** `The` — table name.
 
 ##### `public function pushJoin(Join ...$join) : self`
@@ -110,7 +101,6 @@ Find a join in the current query by table hash
 
  * **Parameters:** `Table` — The table to join.
 
-     <p>
  * **Returns:** `A` — Join object or null.
 
 ##### `public function setDistinct(bool $distinct = true) : self`
@@ -119,7 +109,6 @@ The setDistinct method sets the distinct property to the value passed in
 
  * **Parameters:** `bool` — If set to true, the query will be executed with a distinct clause.
 
-     <p>
  * **Returns:** `The` — current instance of the class.
 
 ##### `public function getInjection() : Injection`
@@ -152,7 +141,6 @@ Creates a new Alias object and sets it as the current alias for this QueryBuilde
 
  * **Parameters:** `string` — The name of the alias.
 
-     <p>
  * **Returns:** `The` — current instance of the class.
 
 ##### `public function getAlias() :? Alias`
@@ -167,7 +155,6 @@ The setFromStatement function sets the from property of the class to the given s
 
  * **Parameters:** `Statement` — The statement to be used as the FROM clause.
 
-     <p>
  * **Returns:** `The` — object itself.
 
 ##### `public function getTable() : Table`
@@ -190,7 +177,6 @@ Given a table, return the field name
    * `Table` — The table to get the field from.
    * `string` — The name of the field to get.
 
-     <p>
  * **Returns:** `The` — field name.
 
 ##### `public function getFrom() : string`
@@ -221,14 +207,11 @@ This function will return all the columns from the table and all the joined tabl
    * `bool` — If true, the column is required to be in the query.
    * `Group` — The group to which the columns belong.
 
-     <p>
  * **Returns:** `The` — columns that are being returned are the columns that are being used in the query.
 
      This includes the columns that are being joined.
 
-## ***Class KSQL\operations\Update usable methods***
-
-#### Documentation
+###### ***Class KSQL\operations\Update usable methods***
 
 ##### `public function getQueries() : array`
 

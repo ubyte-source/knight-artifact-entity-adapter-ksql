@@ -1,6 +1,6 @@
 # Documentation knight-artifact-entity-adapter-ksql
 
-> Knight PHP library for build query in SQL; the default dialect implement is MySQL.
+Knight PHP library for build query in SQL; the default dialect implement is MySQL.
 
 **NOTE:** This repository is part of [Knight](https://github.com/energia-source/knight). Any
 support requests, bug reports, or development contributions should be directed to
@@ -8,9 +8,7 @@ that project.
 
 ## Structure
 
-## Structure
-
-- library:
+library:
     - [KSQL\adapters\map\common](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters/map/common)
     - [KSQL\adapters\map](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters/map)
     - [KSQL\adapters](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters)
@@ -29,21 +27,19 @@ that project.
     - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
     - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-## ***Class KSQL\adapters\Join usable methods***
+###### ***Class KSQL\adapters\Join usable methods***
 
-###### Documentation
-
-######## `public function __construct()`
+##### `public function __construct()`
 
 The constructor sets the injection and joined tables properties to null, and then instantiates a new Injection and JoinedTables object
 
-######## `public function __clone()`
+##### `public function __clone()`
 
 Clone the object and all its properties
 
  * **Returns:** `The` — object itself.
 
-######## `public function setInjection(?Table $table, Injection $injection) : self`
+##### `public function setInjection(?Table $table, Injection $injection) : self`
 
 The setInjection function sets the injection property of the class to the injection parameter
 
@@ -51,10 +47,9 @@ The setInjection function sets the injection property of the class to the inject
    * `table` — table to inject into.
    * `Injection` — The injection to use.
 
-     <p>
  * **Returns:** `The` — current object.
 
-######## `public function setJoinedTables(?Table $table, JoinedTables $tables) : self`
+##### `public function setJoinedTables(?Table $table, JoinedTables $tables) : self`
 
 The setJoinedTables function sets the tables property to the tables parameter
 
@@ -62,28 +57,26 @@ The setJoinedTables function sets the tables property to the tables parameter
    * `table` — table that is being joined.
    * `JoinedTables` — The tables that are joined.
 
-     <p>
  * **Returns:** `A` — new instance of the class.
 
-######## `public function getInjection() : Injection`
+##### `public function getInjection() : Injection`
 
 Get the injection for this object.
 
  * **Returns:** `The` — injection object.
 
-######## `public function getJoinedTables() : JoinedTables`
+##### `public function getJoinedTables() : JoinedTables`
 
 Returns the joined tables
 
  * **Returns:** `An` — instance of the JoinedTables class.
 
-######## `public function join(?Table $table, Table ...$tables) : Table`
+##### `public function join(?Table $table, Table ...$tables) : Table`
 
 This function joins the table with the table passed in as an argument
 
  * **Parameters:** `table` — table to join with.
 
-     <p>
  * **Returns:** `The` — last table in the chain of joins.
 
 So the basic add column code SQL injection into query:
@@ -134,7 +127,7 @@ $user_query_select->getInjection()->addColumn($user_query_select_dialect,
 
 ```
 
-######## `public function getFieldPath(?Table $table, string $name) : string`
+##### `public function getFieldPath(?Table $table, string $name) : string`
 
 Given a table and a field name, return the field path
 
@@ -142,7 +135,6 @@ Given a table and a field name, return the field path
    * `table` — Table object that contains the field.
    * `string` — The name of the field.
 
-     <p>
  * **Returns:** `The` — field path for the field in the table.
 
 ## Built With

@@ -1,6 +1,6 @@
 # Documentation knight-artifact-entity-adapter-ksql
 
-> Knight PHP library for build query in SQL; the default dialect implement is MySQL.
+Knight PHP library for build query in SQL; the default dialect implement is MySQL.
 
 **NOTE:** This repository is part of [Knight](https://github.com/energia-source/knight). Any
 support requests, bug reports, or development contributions should be directed to
@@ -8,7 +8,7 @@ that project.
 
 ## Structure
 
-- library:
+library:
     - [KSQL\adapters\map\common](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters/map/common)
     - [KSQL\adapters\map](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters/map)
     - [KSQL\adapters](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters)
@@ -27,9 +27,7 @@ that project.
     - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
     - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-## ***Class KSQL\operations\select\group\Collection usable methods***
-
-#### Documentation
+###### ***Class KSQL\operations\select\group\Collection usable methods***
 
 ##### `public function __construct(Table $table, string ...$fields)`
 
@@ -55,7 +53,6 @@ This function returns an array of the columns that are in the table that this fi
 
  * **Parameters:** `select` — Select object that is being elaborated.
 
-     <p>
  * **Returns:** `An` — array of column names.
 
 ## Built With

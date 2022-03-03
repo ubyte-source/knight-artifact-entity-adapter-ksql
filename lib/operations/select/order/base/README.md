@@ -1,6 +1,6 @@
 # Documentation knight-artifact-entity-adapter-ksql
 
-> Knight PHP library for build query in SQL; the default dialect implement is MySQL.
+Knight PHP library for build query in SQL; the default dialect implement is MySQL.
 
 **NOTE:** This repository is part of [Knight](https://github.com/energia-source/knight). Any
 support requests, bug reports, or development contributions should be directed to
@@ -8,7 +8,7 @@ that project.
 
 ## Structure
 
-- library:
+library:
     - [KSQL\adapters\map\common](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters/map/common)
     - [KSQL\adapters\map](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters/map)
     - [KSQL\adapters](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters)
@@ -27,9 +27,7 @@ that project.
     - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
     - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-## ***Class KSQL\operations\select\order\base\Column usable methods***
-
-#### Documentation
+###### ***Class KSQL\operations\select\order\base\Column usable methods***
 
 ##### `public function __construct(Table $table, string $name)`
 
@@ -51,7 +49,6 @@ Returns the name of the column, with a prefix of the table name if the column is
 
  * **Parameters:** `select` — Select object that is being built.
 
-     <p>
  * **Returns:** `The` — field name, with a preceding underscore, if the field is not in the group.
 
 ## Built With

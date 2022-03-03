@@ -1,6 +1,6 @@
 # Documentation knight-artifact-entity-adapter-ksql
 
-> Knight PHP library for build query in SQL; the default dialect implement is MySQL.
+Knight PHP library for build query in SQL; the default dialect implement is MySQL.
 
 **NOTE:** This repository is part of [Knight](https://github.com/energia-source/knight). Any
 support requests, bug reports, or development contributions should be directed to
@@ -8,7 +8,7 @@ that project.
 
 ## Structure
 
-- library:
+library:
     - [KSQL\adapters\map\common](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters/map/common)
     - [KSQL\adapters\map](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters/map)
     - [KSQL\adapters](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters)
@@ -27,9 +27,7 @@ that project.
     - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
     - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-## ***Class KSQL\operations\common\Base usable methods***
-
-#### Documentation
+###### ***Class KSQL\operations\common\Base usable methods***
 
 ##### `final public function __clone()`
 
@@ -45,9 +43,7 @@ The __construct function is called when a new instance of the class is created
    * `Initiator` — The core object.
    * `array` — An array of arguments passed to the constructor.
 
-## ***Class KSQL\operations\common\Handling usable methods***
-
-#### Documentation
+###### ***Class KSQL\operations\common\Handling usable methods***
 
 ##### `public function run()`
 
@@ -61,9 +57,7 @@ The setSkip function sets the skip property of the class to the value of the ski
 
  * **Returns:** `Nothing.` — 
 
-## ***Class KSQL\operations\common\Option usable methods***
-
-#### Documentation
+###### ***Class KSQL\operations\common\Option usable methods***
 
 ##### `public static function getConstants(string $instance) : array`
 
@@ -71,7 +65,6 @@ Get all the constants from a class
 
  * **Parameters:** `string` — The instance of the class you want to get the constants of.
 
-     <p>
  * **Returns:** `An` — array of constants.
 
 ##### `public function __construct(Table $table)`

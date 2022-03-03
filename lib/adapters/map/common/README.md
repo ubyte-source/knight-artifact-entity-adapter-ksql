@@ -1,6 +1,6 @@
 # Documentation knight-artifact-entity-adapter-ksql
 
-> Knight PHP library for build query in SQL; the default dialect implement is MySQL.
+Knight PHP library for build query in SQL; the default dialect implement is MySQL.
 
 **NOTE:** This repository is part of [Knight](https://github.com/energia-source/knight). Any
 support requests, bug reports, or development contributions should be directed to
@@ -8,7 +8,7 @@ that project.
 
 ## Structure
 
-- library:
+library:
     - [KSQL\adapters\map\common](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters/map/common)
     - [KSQL\adapters\map](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters/map)
     - [KSQL\adapters](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters)
@@ -27,29 +27,27 @@ that project.
     - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
     - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-## ***Class KSQL\adapters\map\common\Bind usable methods***
+###### ***Class KSQL\adapters\map\common\Bind usable methods***
 
-###### Documentation
-
-######## `public function getBind() : array`
+##### `public function getBind() : array`
 
 This function returns the bind array
 
  * **Returns:** `An` — array of values that are bound to the query.
 
-######## `public function resetBind() : self`
+##### `public function resetBind() : self`
 
 This function resets the bind array
 
  * **Returns:** `The` — object itself.
 
-######## `public function getBound(...$data) : array`
+##### `public function getBound(...$data) : array`
 
 This function returns an array of bind variables that are bound to the data passed in
 
  * **Returns:** `An` — array of bound variables.
 
-######## `public function addBind(string $key, $data) : self`
+##### `public function addBind(string $key, $data) : self`
 
 Add a bind value to the query
 
@@ -57,20 +55,13 @@ Add a bind value to the query
    * `string` — The name of the variable to bind.
    * `data` — data to be bound to the query.
 
-     <p>
  * **Returns:** `Nothing.` — 
 
-######## `public function pushFromBind(self ...$binds) : self`
+##### `public function pushFromBind(self ...$binds) : self`
 
 This function takes an array of binds and adds them to the current bind
 
- * **Returns:** `Nothing.` — 
-
-######## `private static function increment() : int`
-
-Increment the static variable by 1
-
- * **Returns:** `The` — return value is an integer that is incremented by 1 each time the function is called.
+ * **Returns:** `Nothing.` —
 
 ## Built With
 

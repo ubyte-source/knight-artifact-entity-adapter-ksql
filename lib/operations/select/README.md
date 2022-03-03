@@ -8,7 +8,7 @@ that project.
 
 ## Structure
 
-- library:
+library:
     - [KSQL\adapters\map\common](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters/map/common)
     - [KSQL\adapters\map](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters/map)
     - [KSQL\adapters](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters)
@@ -27,9 +27,7 @@ that project.
     - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
     - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-## ***Class KSQL\operations\select\Alias usable methods***
-
-#### Documentation
+###### ***Class KSQL\operations\select\Alias usable methods***
 
 ##### `public function __construct(Table $table)`
 
@@ -43,7 +41,6 @@ Set the name of the alias to the given name.
 
  * **Parameters:** `string` — The name of the parameter.
 
-     <p>
  * **Returns:** `The` — object itself.
 
 ##### `public function getName() : string`
@@ -52,9 +49,7 @@ Get the name of the person.
 
  * **Returns:** `The` — name of the alias.
 
-## ***Class KSQL\operations\select\Group usable methods***
-
-#### Documentation
+###### ***Class KSQL\operations\select\Group usable methods***
 
 ##### `public function __clone()`
 
@@ -70,7 +65,6 @@ It takes a string, replaces all instances of the variable prefix with the bound 
    * `Dialect` — The dialect to use.
    * `having` — SQL having clause.
 
-     <p>
  * **Returns:** `The` — query object.
 
 ##### `public function getHaving() :? string`
@@ -101,12 +95,9 @@ It returns the columns of the collections
 
      of column definitions.
 
-     <p>
  * **Returns:** `The` — columns of the tables in the database.
 
-## ***Class KSQL\operations\select\Join usable methods***
-
-#### Documentation
+###### ***Class KSQL\operations\select\Join usable methods***
 
 ##### `public function __construct(Table $table)`
 
@@ -120,7 +111,6 @@ Set the type of join.
 
  * **Parameters:** `int` — The type of join.
 
-     <p>
  * **Returns:** `Nothing.` — 
 
 ##### `public function getType() : int`
@@ -135,7 +125,6 @@ Add a condition to the query
 
  * **Parameters:** `string` — The condition to add to the query.
 
-     <p>
  * **Returns:** `The` — object itself.
 
 ##### `public function getConditions() : array`
@@ -156,7 +145,6 @@ The setUsingList function sets the using property to the value of the enable par
 
  * **Parameters:** `bool` — If true, the list will be used. If false, the list will be ignored.
 
-     <p>
  * **Returns:** `Nothing.` — 
 
 ##### `public function getUsingList() : bool`
@@ -177,12 +165,9 @@ Returns the name of the field in the table, with the table alias prepended
 
  * **Parameters:** `string` — The name of the field to be parsed.
 
-     <p>
  * **Returns:** `The` — field name with the table alias.
  
-## ***Class KSQL\operations\select\Limit usable methods***
-
-#### Documentation
+###### ***Class KSQL\operations\select\Limit usable methods***
 
 ##### `public function set(int $limit) : self`
 
@@ -190,7 +175,6 @@ Set the limit of the query.
 
  * **Parameters:** `int` — The maximum number of results to return.
 
-     <p>
  * **Returns:** `Nothing.` — 
 
 ##### `public function get() :? int`
@@ -205,7 +189,6 @@ Set the offset of the current status
 
  * **Parameters:** `int` — The number of seconds to offset the time by.
 
-     <p>
  * **Returns:** `Nothing.` — 
 
 ##### `public function getOffset() :? int`
@@ -214,9 +197,7 @@ Get the offset of the current position in the file.
 
  * **Returns:** `The` — offset of the current position in the file.
 
-## ***Class KSQL\operations\select\Order usable methods***
-
-#### Documentation
+###### ***Class KSQL\operations\select\Order usable methods***
 
 ##### `public function __clone()`
 
@@ -242,7 +223,6 @@ This function returns an array of Column objects that are associated with this t
 
  * **Parameters:** `select` — Select object that is being used to generate the SQL.
 
-     <p>
  * **Returns:** `An` — array of strings.
 
 ##### `public function getCollections() : array`

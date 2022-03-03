@@ -1,6 +1,6 @@
 # Documentation knight-artifact-entity-adapter-ksql
 
-> Knight PHP library for build query in SQL; the default dialect implemented is MySQL.
+Knight PHP library for build query in SQL; the default dialect implemented is MySQL.
 
 **NOTE:** This repository is part of [Knight](https://github.com/energia-source/knight). Any
 support requests, bug reports or development contributions should be directed to
@@ -13,7 +13,9 @@ To begin, install the preferred dependency manager for PHP, [Composer](https://g
 Now to install just this component:
 
 ```sh
+
 $ composer require knight/knight-artifact-entity-adapter-ksql
+
 ```
 
 ## Extensions
@@ -24,12 +26,8 @@ Dialect extensions were created to be able to use different database language ba
 
 ## Configuration
 
-### Concepts
-
 Configuration are grouped into configuration namespace by the framework [Knight](https://github.com/energia-source/knight).
 The configuration files are stored in the configurations folder and in the file named MySQL.php or Dielect.php that you have previously imported.
-
-### Setup
 
 So the basic setup looks something like this:
 
@@ -65,7 +63,7 @@ final class MySQL
 
 ## Structure
 
-- library:
+library:
     - [KSQL\adapters\map\common](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters/map/common)
     - [KSQL\adapters\map](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters/map)
     - [KSQL\adapters](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters)
@@ -90,7 +88,7 @@ final class MySQL
 
 <br>
 
-> The most classic case is the insertion of a matryoshka; that is the insertion of a record in the main table where other daughter tables are connected. Connection by primary key is done automatically by the library.
+The most classic case is the insertion of a matryoshka; that is the insertion of a record in the main table where other daughter tables are connected. Connection by primary key is done automatically by the library.
 So the basic insert table and childs table usage looks something like this:
 
 <br>
@@ -148,7 +146,7 @@ Output::print(true);
 
 <br>
 
-> In this example case we perform a select with a join for a child table where a specific field is taken and inserted as an array in the result of the main query.
+In this example case we perform a select with a join for a child table where a specific field is taken and inserted as an array in the result of the main query.
 So the basic select usage looks something like this:
 
 <br>
@@ -220,7 +218,7 @@ Output::print(true);
 
 <br>
 
-> In this case the syntax modifies the record in the parent table, deletes the records linked by the primary key and then inserts the new child records.
+In this case the syntax modifies the record in the parent table, deletes the records linked by the primary key and then inserts the new child records.
 So the basic update table and delete/insert new childs record usage looks something like this:
 
 <br>
@@ -247,7 +245,7 @@ use applications\document\output\forms\Matrioska;
 use applications\document\output\database\project\Dependencies;
 
 $application_basename = IAMConfiguration::getApplicationBasename();
-if (Sso::youHaveNoPolicies($application_basename . '/what/you/wand/action/update')) Output::print(false);
+if (Sso::youHaveNoPolicies($application_basename . '/what/you/want/action/update')) Output::print(false);
 
 $uniqueness = parse_url($_SERVER[Navigator::REQUEST_URI], PHP_URL_PATH);
 $uniqueness = basename($uniqueness);
@@ -307,7 +305,7 @@ Output::print(true);
 
 <br>
 
-> A foreign key with cascade delete means that if a record in the parent table is deleted, then the corresponding records in the child table will automatically be deleted.
+A foreign key with cascade delete means that if a record in the parent table is deleted, then the corresponding records in the child table will automatically be deleted.
 So the basic delete record usage looks something like this:
 
 <br>
@@ -330,7 +328,7 @@ use KSQL\Factory;
 use applications\coordinator\device\database\Device;
 
 $application_basename = IAMConfiguration::getApplicationBasename();
-if (Sso::youHaveNoPolicies($application_basename . '/what/you/wand/action/delete')) Output::print(false);
+if (Sso::youHaveNoPolicies($application_basename . '/what/you/want/action/delete')) Output::print(false);
 
 $device_serial = parse_url($_SERVER[Navigator::REQUEST_URI], PHP_URL_PATH);
 $device_serial = basename($device_serial);

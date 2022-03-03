@@ -1,6 +1,6 @@
 # Documentation knight-artifact-entity-adapter-ksql
 
-> Knight PHP library for build query in SQL; the default dialect implement is MySQL.
+Knight PHP library for build query in SQL; the default dialect implement is MySQL.
 
 **NOTE:** This repository is part of [Knight](https://github.com/energia-source/knight). Any
 support requests, bug reports, or development contributions should be directed to
@@ -8,7 +8,7 @@ that project.
 
 ## Structure
 
-- library:
+library:
     - [KSQL\adapters\map\common](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters/map/common)
     - [KSQL\adapters\map](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters/map)
     - [KSQL\adapters](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/adapters)
@@ -27,48 +27,43 @@ that project.
     - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
     - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-## ***Class KSQL\operations\common\features\parser\Matrioska usable methods***
+###### ***Class KSQL\operations\common\features\parser\Matrioska usable methods***
 
-###### Documentation
-
-######## `public static function setClosure(Closure $callable) : void`
+###### `public static function setClosure(Closure $callable) : void`
 
 Set the closure to be called when the event is triggered
 
  * **Parameters:** `Closure` — The callable to be called when the event is triggered.
 
-## ***Class KSQL\operations\common\features\parser\Query usable methods***
+###### ***Class KSQL\operations\common\features\parser\Query usable methods***
 
-###### Documentation
-
-######## `public function __clone()`
+###### `public function __clone()`
 
 Clone the object and all its properties
 
  * **Returns:** `The` — cloned object.
 
-######## `final public function __construct(Table $table)`
+###### `final public function __construct(Table $table)`
 
 The constructor for the class
 
  * **Parameters:** `Table` — The table object that this class is associated with.
 
-######## `public function getTable() : Table`
+###### `public function getTable() : Table`
 
 Returns the table object associated with this class
 
  * **Returns:** `The` — table object.
 
-######## `public function setStatement(Statement $statement) : self`
+###### `public function setStatement(Statement $statement) : self`
 
 The setStatement function sets the statement property to the given statement
 
  * **Parameters:** `Statement` — The statement to be executed.
 
-     <p>
  * **Returns:** `The` — object itself.
 
-######## `public function getStatement() :? Statement`
+###### `public function getStatement() :? Statement`
 
 Returns the statement object associated with this object
 

@@ -27,7 +27,7 @@ library:
 - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
 - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-###### ***Class KSQL\operations\select\group\Collection usable methods***
+#### ***Class KSQL\operations\select\group\Collection usable methods***
 
 ##### `public function __construct(Table $table, string ...$fields)`
 

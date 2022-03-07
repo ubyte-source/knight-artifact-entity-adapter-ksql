@@ -27,7 +27,7 @@ library:
 - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
 - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-###### ***Class KSQL\operations\Delete usable methods***
+#### ***Class KSQL\operations\Delete usable methods***
 
 ##### `public function getQueries() : array`
 
@@ -35,7 +35,7 @@ It takes a list of tables, and returns a list of queries
 
  * **Returns:** `An` — array of queries.
 
-###### ***Class KSQL\operations\Insert usable methods***
+#### ***Class KSQL\operations\Insert usable methods***
 
 ##### `public function getQueries() : array`
 
@@ -71,7 +71,7 @@ Get the value of the ignore property.
 
  * **Returns:** `A` — boolean value.
 
-###### ***Class KSQL\operations\Select usable methods***
+#### ***Class KSQL\operations\Select usable methods***
 
 ##### `public static function getTableName(Table $table, ?Alias $alias = null) : string`
 
@@ -211,7 +211,7 @@ This function will return all the columns from the table and all the joined tabl
 
      This includes the columns that are being joined.
 
-###### ***Class KSQL\operations\Update usable methods***
+#### ***Class KSQL\operations\Update usable methods***
 
 ##### `public function getQueries() : array`
 

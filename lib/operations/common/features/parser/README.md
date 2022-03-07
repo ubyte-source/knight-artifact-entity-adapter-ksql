@@ -27,7 +27,7 @@ library:
 - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
 - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-###### ***Class KSQL\operations\common\features\parser\Matrioska usable methods***
+#### ***Class KSQL\operations\common\features\parser\Matrioska usable methods***
 
 ###### `public static function setClosure(Closure $callable) : void`
 
@@ -35,7 +35,7 @@ Set the closure to be called when the event is triggered
 
  * **Parameters:** `Closure` — The callable to be called when the event is triggered.
 
-###### ***Class KSQL\operations\common\features\parser\Query usable methods***
+#### ***Class KSQL\operations\common\features\parser\Query usable methods***
 
 ###### `public function __clone()`
 

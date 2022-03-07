@@ -27,7 +27,7 @@ library:
 - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
 - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-###### ***Class KSQL\operations\common\Base usable methods***
+#### ***Class KSQL\operations\common\Base usable methods***
 
 ##### `final public function __clone()`
 
@@ -43,7 +43,7 @@ The __construct function is called when a new instance of the class is created
    * `Initiator` — The core object.
    * `array` — An array of arguments passed to the constructor.
 
-###### ***Class KSQL\operations\common\Handling usable methods***
+#### ***Class KSQL\operations\common\Handling usable methods***
 
 ##### `public function run()`
 
@@ -57,7 +57,7 @@ The setSkip function sets the skip property of the class to the value of the ski
 
  * **Returns:** `Nothing.` — 
 
-###### ***Class KSQL\operations\common\Option usable methods***
+#### ***Class KSQL\operations\common\Option usable methods***
 
 ##### `public static function getConstants(string $instance) : array`
 

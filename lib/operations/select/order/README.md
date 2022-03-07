@@ -27,7 +27,7 @@ library:
 - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
 - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-###### ***Class KSQL\operations\select\order\Direction usable methods***
+#### ***Class KSQL\operations\select\order\Direction usable methods***
 
 ##### `public function __construct(Table $table, string $name)`
 
@@ -59,7 +59,7 @@ This function returns the direction of the field
 
  * **Returns:** `The` — direction of the field.
 
-###### ***Class KSQL\operations\select\order\Field usable methods***
+#### ***Class KSQL\operations\select\order\Field usable methods***
 
 ##### `public function __construct(Table $table, string $name)`
 

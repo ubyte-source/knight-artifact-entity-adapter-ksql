@@ -27,7 +27,7 @@ library:
 - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
 - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-###### ***Class KSQL\operations\select\Alias usable methods***
+#### ***Class KSQL\operations\select\Alias usable methods***
 
 ##### `public function __construct(Table $table)`
 
@@ -49,7 +49,7 @@ Get the name of the person.
 
  * **Returns:** `The` — name of the alias.
 
-###### ***Class KSQL\operations\select\Group usable methods***
+#### ***Class KSQL\operations\select\Group usable methods***
 
 ##### `public function __clone()`
 
@@ -97,7 +97,7 @@ It returns the columns of the collections
 
  * **Returns:** `The` — columns of the tables in the database.
 
-###### ***Class KSQL\operations\select\Join usable methods***
+#### ***Class KSQL\operations\select\Join usable methods***
 
 ##### `public function __construct(Table $table)`
 
@@ -167,7 +167,7 @@ Returns the name of the field in the table, with the table alias prepended
 
  * **Returns:** `The` — field name with the table alias.
  
-###### ***Class KSQL\operations\select\Limit usable methods***
+#### ***Class KSQL\operations\select\Limit usable methods***
 
 ##### `public function set(int $limit) : self`
 
@@ -197,7 +197,7 @@ Get the offset of the current position in the file.
 
  * **Returns:** `The` — offset of the current position in the file.
 
-###### ***Class KSQL\operations\select\Order usable methods***
+#### ***Class KSQL\operations\select\Order usable methods***
 
 ##### `public function __clone()`
 

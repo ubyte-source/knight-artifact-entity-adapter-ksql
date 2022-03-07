@@ -27,7 +27,7 @@ library:
 - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
 - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-###### ***Class KSQL\adapters\map\common\Injection usable methods***
+#### ***Class KSQL\adapters\map\common\Injection usable methods***
 
 ##### `public function getColumns() : array`
 
@@ -139,7 +139,7 @@ This function will return an array of the columns that are being used in the que
 
  * **Returns:** `The` — return value is an array of strings.
 
-###### ***Class KSQL\adapters\map\common\JoinedTables usable methods***
+#### ***Class KSQL\adapters\map\common\JoinedTables usable methods***
 
 ##### `public function __clone()`
 

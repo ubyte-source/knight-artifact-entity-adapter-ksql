@@ -27,7 +27,7 @@ library:
 - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
 - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-###### ***Class KSQL\dialects\MySQL usable methods***
+#### ***Class KSQL\dialects\MySQL usable methods***
 
 All the files contain in the KSQL\dialects route are used by the library to build the query.
 

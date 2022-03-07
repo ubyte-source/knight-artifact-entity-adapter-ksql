@@ -27,7 +27,7 @@ library:
 - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
 - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-###### ***Class KSQL\Factory usable methods***
+#### ***Class KSQL\Factory usable methods***
 
 ##### `public static function connect(string $dialect = 'KSQL\\dialects\\MySQL', string $constant = 'DEFAULT') : Connection`
 
@@ -63,7 +63,7 @@ The function is a bit long, but it's not too bad. The first thing we do is loop 
 
  * **Returns:** `A` — Connection object or null.
 
-###### ***Class KSQL\Initiator usable methods***
+#### ***Class KSQL\Initiator usable methods***
 
 ##### `public static function getNamespaceName() : string`
 
@@ -109,7 +109,7 @@ Returns the connection object
 
  * **Returns:** `A` — connection object.
 
-###### ***Class KSQL\Statement usable methods***
+#### ***Class KSQL\Statement usable methods***
 
 ##### `public function __construct(Connection $connection = null)`
 

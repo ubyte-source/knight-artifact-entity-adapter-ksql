@@ -27,7 +27,7 @@ library:
 - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
 - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-###### ***Class KSQL\operations\common\features\Parser usable methods***
+#### ***Class KSQL\operations\common\features\Parser usable methods***
 
 ##### `public static function tables(Dialect $dialect, Table $data, string $origin, string ...$skip) : array`
 
@@ -59,7 +59,7 @@ It takes a table and a child table, and returns the fields that are unique to th
 
  * **Returns:** `An` — array of fields that are unique to the table.
 
-###### ***Class KSQL\operations\common\features\Where usable methods***
+#### ***Class KSQL\operations\common\features\Where usable methods***
 
 ##### `public function setWhereStatement(Statement $statement) : self`
 

@@ -27,7 +27,7 @@ library:
 - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
 - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-###### ***Class KSQL\adapters\map\common\Bind usable methods***
+#### ***Class KSQL\adapters\map\common\Bind usable methods***
 
 ##### `public function getBind() : array`
 

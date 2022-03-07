@@ -27,7 +27,7 @@ library:
 - [KSQL\operations](https://github.com/energia-source/knight-artifact-entity-adapter-ksql/tree/main/lib/operations)
 - [KSQL](https://github.com/energia-source/knight-knight-artifact-entity-adapter-ksql/blob/main/lib)
 
-###### ***Class KSQL\connection\drivers\PDO usable methods***
+#### ***Class KSQL\connection\drivers\PDO usable methods***
 
 ##### `public static function converter(&$value) : void`
 

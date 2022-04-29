@@ -35,6 +35,12 @@ Returns an array of the columns in the table
 
  * **Returns:** `An` — array of column names.
 
+##### `public function reset() : self`
+
+Resets the bind parameters and columns
+
+ * **Returns:** The object itself.
+
 ##### `public static function getConstants(string $instance) : array`
 
 Get all the constants from a class

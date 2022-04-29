@@ -35,6 +35,19 @@ final class Injection extends Bind
     }
 
     /**
+     * Resets the bind parameters and columns
+     * 
+     * @return self The object itself.
+     */
+
+    public function reset() : self
+    {
+        $this->resetBind();
+        $this->columns = array();
+        return $this;
+    }
+
+    /**
      * Get all the constants from a class
      * 
      * @param string instance The instance of the class you want to get the constants of.
@@ -61,18 +74,7 @@ final class Injection extends Bind
 
     public function addColumn(Dialect $dialect, string $field_name, string $value, ?string ...$data) :  self
     {
-        $bound = $this->getBound(...$data);
-
-        $value_injection_variables_expression_separator = $dialect::BindCharacter();
-        $value_injection_variables_expression = chr(47) . static::BIND_VARIABLE_PREFIX . chr(40) . '\\' . chr(100) . chr(43) . chr(41) . chr(47);
-        $value_injection_variables = preg_replace_callback($value_injection_variables_expression, function ($match) use ($bound, $value_injection_variables_expression_separator) {
-            return array_key_exists($match[1], $bound)
-                ? $value_injection_variables_expression_separator . $bound[$match[1]]
-                : $match[0];
-        }, $value);
-
-        $this->columns[$field_name] = $value_injection_variables;
-
+        $this->columns[$field_name] = $this->getBindedString($dialect, $value, ...$data);
         return $this;
     }
 

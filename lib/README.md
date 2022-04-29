@@ -135,13 +135,14 @@ Returns the value of the sintax property
 
  * **Returns:** `The` — string that is being returned is the string that was passed into the constructor.
 
-##### `public function append(string $string, bool $white = true) : self`
+##### `public function append(string $value, bool $white = true, ?string ...$data) : self`
 
 Append a string to the sintax
 
  * **Parameters:**
    * `string` — The string to append to the sintax.
    * `bool` — If true, appends a space after the string.
+   * `string` — The parameters binded into string value.
 
  * **Returns:** `Nothing.` — 
 

@@ -57,18 +57,25 @@ class Statement extends Bind
     }
 
     /**
-     * Append a string to the sintax
+     * It appends a string to the sintax property of the class.
      * 
-     * @param string string The string to append to the sintax.
-     * @param bool white If true, appends a space after the string.
+     * @param string value The string to be appended to the sintax.
+     * @param bool white if true, a space will be added to the end of the string.
+     * @param string the parameters binded into string value.
      * 
-     * @return Nothing.
+     * @return self The object itself.
      */
 
-    public function append(string $string, bool $white = true) : self
+    public function append(string $value, bool $white = true, ?string ...$data) : self
     {
-        $this->sintax .= $string;
+        if (false === empty($data)) {
+            $value_dialect = $this->getConnection()->getDialect();
+            $value = $this->getBindedString($value_dialect, $value, ...$data);
+        }
+
+        $this->sintax .= $value;
         if (true === $white) $this->sintax .= chr(32);
+
         return $this;
     }
 

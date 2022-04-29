@@ -4,6 +4,8 @@ namespace KSQL\adapters\map\common;
 
 use Knight\armor\CustomException;
 
+use KSQL\dialects\constraint\Dialect;
+
 /* This class is used to bind values to a query */
 
 class Bind
@@ -88,6 +90,30 @@ class Bind
             foreach ($bind_value as $key => $value) $this->addBind($key, $value);
         });
         return $this;
+    }
+
+    /**
+     * It takes a string, finds all the placeholders in it, and replaces them with the values from the
+     * array
+     * 
+     * @param Dialect dialect The dialect object to use.
+     * @param string value The string to be binded.
+     * 
+     * @return string A string with the binded values.
+     */
+
+    protected function getBindedString(Dialect $dialect, string $value, ?string ...$data) : string
+    {
+        $bound = $this->getBound(...$data);
+        $value_expression_separator = $dialect::BindCharacter();
+        $value_expression = chr(47) . static::BIND_VARIABLE_PREFIX . chr(40) . '\\' . chr(100) . chr(43) . chr(41) . chr(47);
+        $value_binded = preg_replace_callback($value_expression, function ($match) use ($bound, $value_expression_separator) {
+            return array_key_exists($match[1], $bound)
+                ? $value_expression_separator . $bound[$match[1]]
+                : $match[0];
+        }, $value);
+
+        return $value_binded;
     }
 
     /**

@@ -33,13 +33,13 @@ abstract class Handling extends Base implements Query
      * @return The result of the last query executed.
      */
 
-    public function run() : bool
+    public function run() :? bool
     {
         $queries = $this->getQueries();
         foreach ($queries as $query) {
             $query_statement = $query->getStatement();
             if (null === $query_statement) throw new CustomException('developer/database/handling/statement');
-            if (null === $query_statement->execute()) return false;
+            if (null === $query_statement->execute()) return null;
         }
 
         return true;

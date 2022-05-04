@@ -9,7 +9,7 @@ use KSQL\operations\common\features\Parser;
 
 interface Run
 {
-    public function run();
+    public function run() : bool;
 }
 
 /* The Base class is the parent class of all operation class */

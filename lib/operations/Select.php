@@ -351,9 +351,7 @@ class Select extends Base
 
     public function run()
     {
-        $statement = $this->getStatement();
-        $statement_response = $statement->execute();
-        return $statement_response;
+        return $this->getStatement()->execute();
     }
 
     /**

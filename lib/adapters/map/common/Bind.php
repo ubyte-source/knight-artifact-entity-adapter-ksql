@@ -98,11 +98,12 @@ class Bind
      * 
      * @param Dialect dialect The dialect object to use.
      * @param string value The string to be binded.
+     * @param data to contain bind parameter.
      * 
      * @return string A string with the binded values.
      */
 
-    protected function getBindedString(Dialect $dialect, string $value, ?string ...$data) : string
+    protected function getBindedString(Dialect $dialect, string $value, ...$data) : string
     {
         $bound = $this->getBound(...$data);
         $value_expression_separator = $dialect::BindCharacter();

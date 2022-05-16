@@ -61,12 +61,12 @@ class Statement extends Bind
      * 
      * @param string value The string to be appended to the sintax.
      * @param bool white if true, a space will be added to the end of the string.
-     * @param string the parameters binded into string value.
+     * @param the parameters binded into value.
      * 
      * @return self The object itself.
      */
 
-    public function append(string $value, bool $white = true, ?string ...$data) : self
+    public function append(string $value, bool $white = true, ...$data) : self
     {
         if (false === empty($data)) {
             $value_dialect = $this->getConnection()->getDialect();

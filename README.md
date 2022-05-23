@@ -353,8 +353,7 @@ $database_connection->getInstance()->beginTransaction();
 $device_query = KSQL::start($database_connection, $device);
 $device_query_delete = $device_query->delete();
 $device_query_delete_response = $device_query_delete->run();
-if (null === $device_query_delete_response
-    || 1 !== $device_query_delete_response->rowCount()) Output::print(false);
+if (null === $device_query_delete_response) Output::print(false);
 
 $database_connection->getInstance()->commit();
 

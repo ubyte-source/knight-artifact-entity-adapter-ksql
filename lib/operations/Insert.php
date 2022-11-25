@@ -53,7 +53,7 @@ class Insert extends Handling
             $table_columns = $table->getAllFieldsValues(true, false);
             $table_columns = array_diff_key($table_columns, $table_injection_columns);
 
-            $table_columns_bind = array_merge($table_injection_columns, $table_columns);
+            $table_columns_bind = array_replace($table_injection_columns, $table_columns);
             $table_columns_bind = array_unique(array_keys($table_columns_bind), SORT_STRING);
             $table_columns_bind = preg_filter('/^.*$/', chr(96) . '$0' . chr(96), $table_columns_bind);
             $table_columns_bind = implode(chr(44) . chr(32), $table_columns_bind);

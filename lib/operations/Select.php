@@ -273,7 +273,7 @@ class Select extends Base
         $statement_injection = $this->getInjection();
         $statement_injection_columns = $statement_injection->getColumnsParsed(Injection::FIELD);
         if (!!$statement_injection_columns) {
-            $statement_columns = array_merge($statement_columns, $statement_injection_columns);
+            $statement_columns = array_replace($statement_columns, $statement_injection_columns);
             $statement->pushFromBind($statement_injection);
         }
 
@@ -420,13 +420,13 @@ class Select extends Base
         if (null !== $table_columns_files_sintax) {
             $table_columns_files_sintax = preg_filter('/^.*$/', $table_columns_files_sintax, $table_columns_files);
             $table_columns_files_sintax = array_combine($table_columns_files, $table_columns_files_sintax);
-            $sql = array_merge($sql, $table_columns_files_sintax);
+            $sql = array_replace($sql, $table_columns_files_sintax);
         }
 
         if ($group_intersect = array_intersect($group_columns, $table_columns)) {
             $group_intersect_sintax = preg_filter('/^.*$/', $sql_filter, $group_intersect);
             $group_intersect_sintax = array_combine($group_intersect, $group_intersect_sintax);
-            $sql = array_merge($sql, $group_intersect_sintax);
+            $sql = array_replace($sql, $group_intersect_sintax);
         }
 
         return $sql;

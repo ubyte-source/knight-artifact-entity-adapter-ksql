@@ -58,18 +58,15 @@ abstract class Column extends Option implements Elaborate
         if (null === $select) return $field;
 
         $table = $this->getTable();
-        $table_columns = $select->getAllColumns($table);
+        $table_columns_dialect = $select->getConnection()->getDialect();
+        $table_columns = $select->getAllColumns($table_columns_dialect, $table);
         if (array_key_exists($field, $table_columns))
             $field_elaborate = $table_columns[$field];
 
         $group = $select->getGroup()->getColumns(null, true);
         if (empty($group)
             || in_array($field, $group)) return $field_elaborate;
-    
-        $connection_dialect = $select->getConnection()->getDialect();
-        $any = $connection_dialect::AnyValue($field_elaborate);
-
-        return $any;
+        return $table_columns_dialect::AnyValue($field_elaborate);
     }
 
     /**
